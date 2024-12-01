@@ -16,7 +16,7 @@ body {
     overflow: scroll;
     overflow-scrolling: auto;
     /*object-fit: initial;*/
-    background: url("../PersonalProfile-Images/DeskDrawer.png") no-repeat center;
+    background: url("../assets/images/DeskDrawer.png") no-repeat center;
     background-size: 2000px;
     font-family: Arial;
     height: 1250px;
@@ -32,7 +32,7 @@ body {
     z-index: 10;
     width: 400px;
     height: 400px;
-    background: url("../PersonalProfile-Images/FloppyDisk.png") no-repeat center;
+    background: url("../assets/images/FloppyDisk.png") no-repeat center;
     background-size: 100%;
     position: absolute;
     -webkit-animation: blinkingDisk 1.5s ease-in-out infinite alternate;
@@ -63,7 +63,7 @@ body {
 /*    z-index: 10;*/
 /*    width: 400px;*/
 /*    height: 800px;*/
-/*    background: url("../PersonalProfile-Images/FloppyDisk.png") no-repeat center;*/
+/*    background: url("../assets/images/FloppyDisk.png") no-repeat center;*/
 /*    background-size: 100%;*/
 /*    position: absolute;*/
 /*}*/
@@ -76,7 +76,7 @@ body {
     z-index: 15;
     width: 300px;
     height: 800px;
-    background: url("../PersonalProfile-Images/Mattel_AutoRace.png") no-repeat center;
+    background: url("../assets/images/Mattel_AutoRace.png") no-repeat center;
     background-size: 100%;
     position: absolute;
 }
@@ -87,7 +87,7 @@ body {
     position: relative;
     display: flex;
     z-index: 10;
-    background: url("../PersonalProfile-Images/gameToggle.png") no-repeat center;
+    background: url("../assets/images/gameToggle.png") no-repeat center;
     background-size: 100%;
     width: 55px;
     height: 55px;
@@ -238,7 +238,7 @@ body {
     z-index: 5;
     width: 300px;
     height: 450px;
-    background: url("../PersonalProfile-Images/notebook.png") no-repeat center;
+    background: url("../assets/images/notebook.png") no-repeat center;
     background-size: 100%;
     position: absolute;
 }

@@ -43,7 +43,7 @@ $(document).ready(function() {
 //    close drawer link back to home page switch text effect and relocate to homepage
 
     function goToURL() {
-        location.href = 'NAA-Professional-Profile.html';
+        location.href = 'index.html';
 
     }
 
@@ -57,7 +57,7 @@ $(document).ready(function() {
     )
 
     $("#closeDrawer").click(function () {
-        window.location.replace("NAA-Professional-Profile.html")
+        window.location.replace("index.html")
     });
 
 //    set floppy disk to load resume on click
