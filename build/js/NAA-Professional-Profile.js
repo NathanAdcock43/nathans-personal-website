@@ -135,9 +135,79 @@ $(document).ready(function() {
 
 });
 
+// Window lighting effect
+document.addEventListener('DOMContentLoaded', () => {
+    const deskContainer = document.body; // Target the <body> element
+    const shadowCanvas = document.getElementById('shadowCanvas');
+    const ctx = shadowCanvas.getContext('2d');
+
+    // Resize canvas to match desk container or viewport
+    function resizeCanvas() {
+        shadowCanvas.width = deskContainer.offsetWidth / 1.8; // Use deskContainer for relative scaling
+        shadowCanvas.height = deskContainer.offsetHeight / 2.8;
+        console.log('Canvas resized to:', shadowCanvas.width, shadowCanvas.height);
+    }
+
+    // Call resizeCanvas on load and on window resize
+    window.addEventListener('load', resizeCanvas);
+    window.addEventListener('resize', resizeCanvas);
+
+    const texture = new Image();
+    texture.src = '../build/assets/images/tree-leaves-shadows.png'; // Ensure correct path
+
+    texture.onload = () => {
+        console.log('Texture loaded successfully');
 
 
+        function drawSoftSpotlight() {
+            ctx.clearRect(0, 0, shadowCanvas.width, shadowCanvas.height);
 
+            // Randomize positions for two spotlights
+            const light1X = Math.random() * shadowCanvas.width;
+            const light1Y = Math.random() * shadowCanvas.height;
+            const light2X = Math.random() * shadowCanvas.width;
+            const light2Y = Math.random() * shadowCanvas.height;
+
+            // Configure shadow for soft spotlight
+            ctx.save();
+            ctx.beginPath();
+            ctx.arc(light1X, light1Y, shadowCanvas.width / 3, 5, Math.PI * 20, false);
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.03)';
+            ctx.shadowColor = 'rgba(255, 255, 255, 0)';
+            ctx.shadowBlur = 10000;
+            ctx.fill();
+            ctx.restore();
+
+            // Draw the second spotlight
+            ctx.save();
+            ctx.beginPath();
+            ctx.arc(light2X, light2Y, shadowCanvas.width / 3, 3, Math.PI * 15, false);
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.05)';
+            ctx.shadowColor = 'rgba(255, 255, 255, 0)';
+            ctx.shadowBlur = 10000;
+            ctx.fill();
+            ctx.restore();
+
+            // Apply texture as a mask
+            ctx.globalCompositeOperation = 'destination-in';
+            ctx.drawImage(texture, 0, 0, shadowCanvas.width, shadowCanvas.height);
+
+            // Reset composite operation
+            ctx.globalCompositeOperation = 'source-over';
+        }
+
+        function animateSoftSpotlight() {
+            drawSoftSpotlight();
+            setTimeout(animateSoftSpotlight, Math.random() * 10000);
+        }
+
+        animateSoftSpotlight();
+    };
+
+    texture.onerror = () => {
+        console.error('Failed to load texture image');
+    };
+});
 
 //Magnify feature for the Magazine
 
