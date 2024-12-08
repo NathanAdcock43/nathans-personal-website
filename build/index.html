@@ -11,29 +11,63 @@
 </head>
 <body>
 <canvas id="shadowCanvas"></canvas>
-
+<div class="note-shadow"></div>
 <div class="notes">
     <div class="dateContainer"><p id="dayOfWeek"></p>
         <div id="monthNums"> <p></p> <p id="dayOfMonth1"></p><p id="dayOfMonth2"></p> </div>
         <p id="Month"></p>
     </div>
 
-    <img class="stickMan" src="assets/images/HandDrawn2_4.gif" alt="StickMan">
+    <img class="stickMan" id="stickManGif"
+         src="assets/images/HandDrawn2_4.gif"
+         alt="StickMan">
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const stickManGif = document.getElementById('stickManGif');
+            console.log("GIF loaded:", stickManGif);
+
+            // Function to trigger the gif periodically
+            function runGifPeriodically() {
+                console.log("Restarting GIF...");
+
+                // Create a timestamp to force a fresh reload of the GIF
+                const gifSrc = 'assets/images/HandDrawn2_4.gif';
+                stickManGif.src = ''; // Temporarily remove src
+                setTimeout(() => {
+                    stickManGif.src = `${gifSrc}?t=${new Date().getTime()}`; // Add timestamp to force reload
+                }, 100); // Small delay to allow DOM refresh
+
+                // Set a timer to trigger the GIF again after 30 seconds
+                setTimeout(runGifPeriodically, 30000); // 30 seconds
+            }
+
+            // Initial call to run the GIF
+            runGifPeriodically();
+        });
+    </script>
 </div>
+
+<div class="coin"></div>
+<div class="coin-two"></div>
+
+<div class="watch-shadow"></div>
 <div class="watch">
     <div class="clock">
-        <div class="hand hour" data-hour-hand></div>
-        <div class="hand minute" data-minute-hand></div>
-        <div class="hand second" data-second-hand></div>
+        <div class="hand hour"
+             data-hour-hand></div>
+        <div class="hand minute"
+             data-minute-hand></div>
+        <div class="hand second"
+             data-second-hand></div>
 
     </div>
 </div>
 <!--<img class="blind-light" src="Classroom-Images/venitian-blinds-large3.gif" alt="blind-light">-->
 <!--    <div class="plank-floor">-->
 <main id="swup" class="entire-paper transition-fade">
-    <div class="paper-date">UTC Wednesday, 17 October 1973</div>
+    <div class="paper-date" id="issueDate"></div>
     <div class="head">
-        <header class="title">The Epoch Times</header>
+        <header class="title">Aspiring Architects Qtly.</header>
     </div>
 
     <nav class="subhead">
@@ -50,46 +84,52 @@
             <div class="column">
                 <img class="headshot campus" src="assets/images/PersonalSiteHeadShotMasked@0.25x.png"
                      alt="Personal Headshot" style="filter: contrast(90%);">
-                <div class="head"><span class="headline hl3">Finding a New Home in Tech</span>
+                <div class="head"><span class="headline hl3">Finding a Home in Tech</span>
                     <p><span class="headline hl2">About me</span></p></div>
-                <p class="magnifiable">After spending the last ten years working for various social services
-                    organizations Nathan Adcock is making a new home in tech. When asked what was the motivation for the
-                    change, the San Antonio resident responded, "As much as I loved the work that I was doing before, I
-                    have always wanted to develop a skill set that allowed me to problem solve and to create something
-                    that people can use". As reported in his resume Nathan attended a four year University, and while
-                    his sociology degree has been greatly beneficial, the sequential concrete growth that software
-                    development has provided is rewarding in a different </p></div>
+                <p class="magnifiable">For Nathan Adcock, the journey from nonprofit leadership to senior software development has
+                    been nothing short of transformative. "I’ve always been driven by the desire to make a difference," Nathan shares,
+                    reflecting on his 12 years of management experience in the social services sector. Now, with over four years in software
+                    development, he’s channeling that same passion into technology.
+                    Currently, a Software Developer Level 3 at a leading 340B healthcare solutions company, Nathan has become a key contributor
+                    to innovative projects, including secure data masking tools and disaster recovery utilities. With a deep commitment to solving
+                    complex problems, Nathan is driven by a singular vision: leveraging technology to create impactful, scalable solutions. He is now
+                    setting his sights on advanced roles in architecture and infrastructure, with the ultimate goal of becoming an AI Systems Architect
+                    by 2029.</p></div>
             <div class="column">
                 <div class="head"><span class="headline hl5">Language cognition trends upward!</span>
-                    <p><span class="headline hl6"> no signs of slowing</span></p></div>
-                Analyist project an unfettered expansion of Nathan's coding and related skills during the coming months and likely years. The last six months has been a real
-                bear, but has produced unfettered growth in the Front and and Back end Sectors. </p>
-                <figure class="figure">
-                    <img class="media" src="assets/images/knowledgeChart.png" alt="">
-                    <figcaption class="figcaption">"Caption Place holder"</figcaption>
-                </figure>
+                    <span class="headline hl2"> no signs of slowing</span></p></div>
+                <p class="magnifiable">Analyist project an unfettered expansion of Nathan's coding and related skills during the coming months and likely years. The last six months has been a real
+                bear, but has produced unfettered growth in the Front and Back end Sectors. </p>
 
-                <p>
+                <span class="headline hl6">"I gained experience in: HTML, CSS, JavaScript, jQuery, Java, Spring, and MySQL"</span>
+
+                <p class="magnifiable">
                     Current valuations indicate an exuberant rise in comprehension for such valued commodities as React and Angular as Nathan starts new projects featuring both. Cyclically adjusted trends might warrant a safe investment of time in long
                     used and trusted institutions such as Python or another compiled language such as C#, however at this juncture it is too early to tell.
                 </p>
-
+                <figure class="figure">
+                    <img class="media" src="assets/images/knowledgeChart.png" alt="">
+                    <figcaption class="figcaption">"Learning trends upward"</figcaption>
+                </figure>
             </div>
             <div class="column">
                 <div class="head"><span class="headline hl1">Nothing ventured, Nothing gained!</span>
-                    <p><span class="headline hl2">Codeup's Full Stack Web Development program</span>
+                    <p><span class="headline hl2">Codeup, CaptureRx, then ...</span>
                     </p></div>
                 </p>
                 <figure class="figure">
                     <img class="campus" src="assets/images/codeupCampus2.png" alt="Campus" style="filter: contrast(90%);">
                     <figcaption class="figcaption">"Codeup's downtown SA campus entrance"</figcaption>
                 </figure>
-                <p>Codeup is a fully-immersive, project-based, and intensive 22 week full stack career accelerator that
-                    provides students with 670 hours of expert instruction in software development. When asked, recent
-                    graduation Nathan had this to say, "The instructors were excellent, and I gained experience in:
-                    HTML, CSS, JavaScript, jQuery, Java, Spring, and MySQL to name a few"
-                    <span class="citation">"I gained experience in: HTML, CSS, JavaScript, jQuery, Java, Spring, and MySQL"</span>
-                </p></div>
+                <p class="magnifiable">Codeup is a fully-immersive, project-based, and intensive 22 week full stack career accelerator that
+                    provides students with 670 hours of expert instruction in software development. When asked, Nathan had this to say, "The instructors were excellent, and I gained experience in:
+                    HTML, CSS, JavaScript, jQuery, Java, Spring, and MySQL to name a few".
+                    He Graduated in July 2021 and received a position as a
+                    web application developer just around the corner from code up at CaptureRx a month after. It has been almost 4 years since then and
+                    and Nathan has gained skills in all aspects of Cumulus (CaptureRx's flagship hospital software) as well as in managing the cloud server architechure on
+                    which it runs.
+                </p>
+            </div>
         </div>
 
     </div>

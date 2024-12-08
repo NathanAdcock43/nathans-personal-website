@@ -62,10 +62,48 @@ $(document).ready(function() {
         $(this).data('clicks', !click);
     })
 
+    document.addEventListener('DOMContentLoaded', () => {
+        const stickManGif = document.getElementById('stickManGif'); // The element with the GIF
+        const gifDuration = 20 * 1000; // 20 seconds in milliseconds
 
+        // Function to restart the GIF every 20 seconds
+        function restartGif() {
+            // Log for debugging
+            console.log('Restarting GIF...');
 
+            // Reset the GIF to its initial state
+            stickManGif.src = ""; // Clear the source temporarily
+            setTimeout(() => {
+                stickManGif.src = "../assets/images/HandDrawn2_4.gif"; // Reassign the source to restart the GIF
+            }, 50); // Small timeout to trigger the reloading process
 
-//Roll Calendar
+            // Call this function every 20 seconds
+            setTimeout(restartGif, gifDuration);
+        }
+
+        // Initialize by loading the GIF and starting the cycle
+        stickManGif.src = "../assets/images/HandDrawn2_4.gif"; // Set the initial GIF source
+        console.log("GIF loaded:", stickManGif); // Log to confirm the GIF is set
+
+        // Start the periodic reset after the initial loading
+        restartGif();
+    });
+
+    //Date of newspaper issue
+    const daysList = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    const monthsList = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+    const utcDate = new Date();
+
+    // Format UTC date
+    const dayOfWeek = daysList[utcDate.getUTCDay()];
+    const currentMonth = monthsList[utcDate.getUTCMonth()];
+    const dayOfMonth = utcDate.getUTCDate();
+    const year = utcDate.getUTCFullYear();
+
+    document.getElementById('issueDate').innerText = `UTC ${dayOfWeek}, ${dayOfMonth} ${currentMonth} ${year}`;
+
+    //Roll Calendar
 
     let days = [
         'SUN',
@@ -207,6 +245,118 @@ document.addEventListener('DOMContentLoaded', () => {
     texture.onerror = () => {
         console.error('Failed to load texture image');
     };
+});
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const deskContainer = document.body; // Target the desktop background layer
+    const shadowCanvas = document.getElementById('shadowCanvas');
+    const ctx = shadowCanvas.getContext('2d');
+
+    // Resize canvas to match the desk container
+    function resizeCanvas() {
+        shadowCanvas.width = deskContainer.offsetWidth / 1.8;
+        shadowCanvas.height = deskContainer.offsetHeight / 2.5;
+        console.log('Canvas resized to:', shadowCanvas.width, shadowCanvas.height);
+    }
+
+    // Call resizeCanvas on load and on window resize
+    window.addEventListener('load', resizeCanvas);
+    window.addEventListener('resize', resizeCanvas);
+
+    const dustMotes = []; // Array to store dust motes
+
+    // Create a new dust mote with random layer assignments
+    function createDustMote() {
+        const lifetime = Math.random() * 10000 + 1000; // Lifetime between 3 and 8 seconds
+
+        const mote = {
+            x: Math.random() * shadowCanvas.width,
+            y: Math.random() * shadowCanvas.height,
+            radius: Math.random() * 1.1 + 1.5, // Random radius between 1.5px and 2.6px
+            alpha: 0, // Initial transparency
+            fadeIn: true, // Fade-in state
+            lifetime, // Lifetime of the mote
+            age: 0, // Current age of the mote
+            speedX: (Math.random() - 0.5) * 0.3, // Horizontal floating speed
+            speedY: (Math.random() - 0.5) * 0.3, // Vertical floating speed
+            // Layer assignment (foreground or background)
+            layer: Math.random() > 0.5 ? 'foreground' : 'background',
+        };
+
+        // Adjust speed based on layer
+        mote.speedX *= mote.layer === 'foreground' ? 1.5 : 0.5;
+        mote.speedY *= mote.layer === 'foreground' ? 1.5 : 0.5;
+        mote.alpha = mote.layer === 'foreground' ? 1 : 0.6;
+
+        return mote;
+    }
+
+    // Update and draw all dust motes
+    function updateDustMotes(deltaTime) {
+        ctx.clearRect(0, 0, shadowCanvas.width, shadowCanvas.height);
+
+        dustMotes.forEach((mote) => {
+            // Update position
+            mote.x += mote.speedX;
+            mote.y += mote.speedY;
+
+            // Keep the dust mote within the canvas bounds
+            if (mote.x < 0 || mote.x > shadowCanvas.width) mote.speedX *= -1;
+            if (mote.y < 0 || mote.y > shadowCanvas.height) mote.speedY *= -1;
+
+            // Update age and alpha
+            mote.age += deltaTime;
+            const halfLife = mote.lifetime / 2;
+
+            if (mote.age <= halfLife) {
+                // Fade in during the first half of life
+                mote.alpha = mote.age / halfLife;
+            } else {
+                // Fade out during the second half of life
+                mote.alpha = 1 - (mote.age - halfLife) / halfLife;
+            }
+
+            // Reset mote if its life ends
+            if (mote.age >= mote.lifetime) {
+                mote.x = Math.random() * shadowCanvas.width;
+                mote.y = Math.random() * shadowCanvas.height;
+                mote.radius = Math.random() * 1.1 + 2; // Reset size
+                mote.alpha = 0;
+                mote.age = 0;
+                mote.lifetime = Math.random() * 1000 + 7000; // New lifetime
+            }
+
+            // Draw the dust mote
+            ctx.save();
+            ctx.beginPath();
+            ctx.arc(mote.x, mote.y, mote.radius, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(230, 230, 230, ${mote.alpha})`;
+            ctx.shadowBlur = 50;
+            ctx.shadowColor = `rgba(200, 200, 200, ${mote.alpha})`;
+            ctx.fill();
+            ctx.restore();
+        });
+    }
+
+    // Animate the dust motes
+    let lastTimestamp = 0;
+    function animateDustMotes(timestamp) {
+        const deltaTime = timestamp - lastTimestamp;
+        lastTimestamp = timestamp;
+
+        updateDustMotes(deltaTime);
+
+        requestAnimationFrame(animateDustMotes);
+    }
+
+    // Initialize dust motes
+    for (let i = 0; i < 40; i++) {
+        dustMotes.push(createDustMote());
+    }
+
+    resizeCanvas();
+    animateDustMotes(0);
 });
 
 //Magnify feature for the Magazine

@@ -33,8 +33,8 @@ body {
 
 .entire-paper {
     position: absolute;
-    top: calc(50% - 450px);
-    left: calc(50% - 400px);
+    top: calc(50% - 400px);
+    left: calc(50% - 345px);
     transform: translate(-50px, -50px);
     transform-origin: top;
     width: 925px;
@@ -128,7 +128,7 @@ html.is-leaving .transition-fade {
 .title {
     font-family: 'Playfair Display', serif;
     font-weight: 900;
-    font-size: 80px;
+    font-size: 50px;
     display: flex;
     justify-content: center;
     text-transform: uppercase;
@@ -500,6 +500,19 @@ a {
     box-sizing: border-box;
 }
 
+.note-shadow {
+    top: calc(50% - 655px);
+    left: calc(50% + 520px);
+    width: 375px;
+    height: 900px;
+    background: url("../assets/images/note_shadow.png") no-repeat center;
+    background-size: 100%;
+    filter: drop-shadow(10px 3px 8px rgba(0, 0, 0, 0.2));
+    opacity: .50;
+    position: absolute;
+    z-index: 1;
+}
+
 .notes {
     top: calc(50% - 655px);
     left: calc(50% + 500px);
@@ -508,6 +521,7 @@ a {
     background: url("../assets/images/noteRoller.png") no-repeat center;
     background-size: 100%;
     position: absolute;
+    z-index: 2;
 }
 
 .dateContainer{
@@ -551,6 +565,85 @@ a {
     display: flex;
 }
 
+/* Sparkle sheen effect */
+
+.coin {
+    position: absolute;
+    top: calc(50% - 87px);
+    left: calc(50% - 743px);
+    width: 6rem;
+    height: 6rem;
+    background-color: transparent;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    z-index: 2;
+}
+
+.coin::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(to bottom, rgba(229, 172, 142, 0), rgba(255, 255, 255, 0.5) 50%, rgba(229, 172, 142, 0));
+    transform: rotate(60deg);
+    animation: sheen 10s infinite linear;
+    z-index: 3;
+}
+
+/* Optionally add a second coin */
+.coin-two {
+    position: absolute;
+    top: calc(50% - 130px);
+    left: calc(50% - 687px);
+    width: 6rem;
+    height: 6rem;
+    background-color: transparent;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    z-index: 4;
+}
+
+.coin-two::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(to bottom, rgba(229, 172, 142, 0), rgba(255, 255, 255, 0.5) 50%, rgba(229, 172, 142, 0));
+    transform: rotate(60deg);
+    animation: sheen 10s infinite linear;
+    z-index: 5;
+}
+
+@keyframes sheen {
+    0% {
+        transform: rotate(60deg) translate(-5em, 7.5em);
+        opacity: 1; /* Fully visible at the start */
+    }
+    16.67% {
+        transform: rotate(60deg) translate(5em, -7.5em);
+        opacity: 1; /* Maintain visibility during the sheen */
+    }
+    33.33% {
+        transform: rotate(60deg) translate(-5em, 7.5em);
+        opacity: 0.3; /* Subtle finish */
+    }
+    100% {
+        opacity: 0.0; /* Maintain subtle opacity during the delay */
+    }
+}
+
+
+
 .stickMan {
     display: inline;
     top: calc(50% - 165px);
@@ -572,6 +665,21 @@ a {
     background: url("../assets/images/watchFlatLay.png") no-repeat center;
     background-size: 100%;
     position: absolute;
+    z-index: 2; /* Ensures watch appears above the shadow */
+}
+
+.watch-shadow {
+    position: absolute;
+    top: calc(50% + 75px);
+    left: calc(50% - 671px);
+    width: 150px;
+    height: 1000px;
+    background: url("../assets/images/watchshadow.png") no-repeat center;
+    filter: drop-shadow(12px 12px 12px rgba(0, 0, 0, 0.2));
+    background-size: 100%;
+    transform: rotateZ(-25deg);
+    opacity: 0.75; /
+    z-index: 1;
 }
 
 .clock {
@@ -844,6 +952,7 @@ html.magnifying > body {
     background: #333 !important;
     opacity: 0.8;
 }
+
 
 #shadowCanvas {
     transform: rotate(120deg);
