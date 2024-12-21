@@ -1,0 +1,9 @@
+<div *ngIf="isDeskBackground; else drawerView">
+    <!-- Desk Components -->
+    <app-desk></app-desk>
+</div>
+
+<ng-template #drawerView>
+    <!-- Drawer Components -->
+    <app-desk-drawer></app-desk-drawer>
+</ng-template>

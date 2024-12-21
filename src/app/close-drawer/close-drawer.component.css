@@ -1,0 +1,16 @@
+.closeDrawer{
+    top: calc(50% - 100px);
+    left: calc(50% - 945px);
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    z-index: 1;
+    position: absolute;
+    height: 60px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+/*.close:hover{*/
+/*    background-color: white;*/
+/*}*/

@@ -1,0 +1,82 @@
+*, *::after, *::before {
+    box-sizing: border-box;
+}
+
+.note-shadow {
+    top: calc(50% - 655px);
+    left: calc(50% + 520px);
+    width: 375px;
+    height: 900px;
+    background: url("../../assets/images/note_shadow.png") no-repeat center;
+    background-size: 100%;
+    filter: drop-shadow(10px 3px 8px rgba(0, 0, 0, 0.2));
+    opacity: .50;
+    position: absolute;
+    z-index: 1;
+}
+
+.notes {
+    top: calc(50% - 655px);
+    left: calc(50% + 500px);
+    width: 375px;
+    height: 900px;
+    background: url("../../assets/images/noteRoller.png") no-repeat center;
+    background-size: 100%;
+    position: absolute;
+    z-index: 2;
+}
+
+.dateContainer{
+    display: flex;
+    top: calc(50%  - 230px);
+    left: calc(50%  - 85px);
+    width: 50%;
+    justify-content: space-between;
+    position: relative;
+}
+
+#monthNums{
+    display: flex;
+    justify-content: space-between;
+    width: 40%;
+
+
+}
+
+#dayOfWeek{
+    width: 20px;
+    height: 15px;
+    display: flex;
+}
+
+#dayOfMonth1{
+    width: 20px;
+    height: 15px;
+    display: flex;
+}
+
+#dayOfMonth2{
+    width: 20px;
+    height: 15px;
+    display: flex;
+}
+
+#Month{
+    width: 40px;
+    height: 15px;
+    display: flex;
+}
+
+/*Stick Man Drawing*/
+
+.stickMan {
+    display: inline;
+    top: calc(50% - 165px);
+    left: calc(50% - 150px);
+    filter: contrast(100%);
+    mix-blend-mode: multiply;
+    width: 70%;
+    margin-left: 10px;
+    height: 400px;
+    position: relative;
+}

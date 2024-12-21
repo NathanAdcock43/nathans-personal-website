@@ -1,0 +1,115 @@
+/* General container for columns */
+.columns {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 90%;
+    margin: 30px auto;
+}
+
+/* Individual column styling */
+.column {
+    font-size: 14px;
+    line-height: 20px;
+    width: 30%;
+    display: inline-block;
+    padding: 0 1% 0 1%;
+    vertical-align: top;
+    margin-bottom: 50px;
+    transition: all 0.7s ease;
+}
+
+.column + .column {
+    border-left: 1px solid #4b4b4b;
+}
+
+/* Header and title styling */
+.head {
+    margin: 0 10% 20px 0;
+    text-align: center;
+}
+
+.secondaryHead {
+    margin: 0 10% 0 0 !important;
+}
+
+.classifiedHeader {
+    background-color: #4b4b4b;
+    color: #c9c4be;
+    padding: 10px 0;
+    font-size: 18px;
+    text-align: center;
+}
+
+.classifiedSpace {
+    margin-bottom: 15px;
+}
+
+/* Headlines for sub-sections */
+.headline {
+    font-family: 'Playfair Display', serif;
+    display: block;
+    text-align: center;
+    margin: 10px auto;
+    line-height: 1.2;
+}
+
+.hl2 {
+    font-weight: 400;
+    font-style: italic;
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+/* Subheadings and descriptive text */
+.subheadCl {
+    padding: 0 !important;
+    font-size: 14px !important;
+    font-weight: bold !important;
+    margin: 0 !important;
+    text-align: center;
+}
+
+.magnifiable {
+    margin-bottom: 5px;
+    cursor: pointer;
+    transition: transform 0.2s, font-size 0.2s;
+}
+
+.magnifiable:hover {
+    font-size: 150%;
+    line-height: 100%;
+    word-spacing: 2px;
+}
+
+/* Image styling */
+.techPics,
+.moviePic {
+    width: 100%;
+    height: auto;
+    margin: 15px 0;
+    -webkit-filter: grayscale(40%) opacity(0.95);
+    filter: grayscale(40%) opacity(0.95);
+    mix-blend-mode: multiply;
+}
+
+.moviePic {
+    -webkit-filter: grayscale(50%) contrast(110%) opacity(0.95);
+    filter: grayscale(50%) contrast(110%) opacity(0.95);
+}
+
+/* Links and interactive elements */
+.links {
+    border-right: solid #86807e thin;
+    text-decoration: none;
+    color: #4b4b4b;
+}
+
+.links:visited,
+.links:active {
+    color: #4b4b4b;
+}
+
+.links:hover {
+    color: rgba(75, 75, 75, 0.87);
+}

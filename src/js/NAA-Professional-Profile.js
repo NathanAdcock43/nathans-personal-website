@@ -1,4 +1,3 @@
-
 //Watch-face current time
 setInterval(setClock, 1000)
 
@@ -24,7 +23,7 @@ setClock()
 
 //handheld game inside desk
 
-$(document).ready(function() {
+$(document).ready(function () {
 
     $("#gametoggle").on('click', function () {
         var click = $(this).data('clicks');
@@ -43,7 +42,7 @@ $(document).ready(function() {
             $(this).css({left: '245px'});
 
 
-        } else  {
+        } else {
             console.log("clicked");
             $('#obstacle-2').css("visibility", "visible");
             $('#obstacle-3').css("visibility", "visible");
@@ -62,32 +61,6 @@ $(document).ready(function() {
         $(this).data('clicks', !click);
     })
 
-    document.addEventListener('DOMContentLoaded', () => {
-        const stickManGif = document.getElementById('stickManGif'); // The element with the GIF
-        const gifDuration = 20 * 1000; // 20 seconds in milliseconds
-
-        // Function to restart the GIF every 20 seconds
-        function restartGif() {
-            // Log for debugging
-            console.log('Restarting GIF...');
-
-            // Reset the GIF to its initial state
-            stickManGif.src = ""; // Clear the source temporarily
-            setTimeout(() => {
-                stickManGif.src = "../assets/images/HandDrawn2_4.gif"; // Reassign the source to restart the GIF
-            }, 50); // Small timeout to trigger the reloading process
-
-            // Call this function every 20 seconds
-            setTimeout(restartGif, gifDuration);
-        }
-
-        // Initialize by loading the GIF and starting the cycle
-        stickManGif.src = "../assets/images/HandDrawn2_4.gif"; // Set the initial GIF source
-        console.log("GIF loaded:", stickManGif); // Log to confirm the GIF is set
-
-        // Start the periodic reset after the initial loading
-        restartGif();
-    });
 
     //Date of newspaper issue
     const daysList = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
@@ -173,80 +146,28 @@ $(document).ready(function() {
 
 });
 
-// Window lighting effect
 document.addEventListener('DOMContentLoaded', () => {
-    const deskContainer = document.body; // Target the <body> element
-    const shadowCanvas = document.getElementById('shadowCanvas');
-    const ctx = shadowCanvas.getContext('2d');
+    const stickManGif = document.getElementById('stickManGif');
+    // console.log("GIF loaded:", stickManGif);
 
-    // Resize canvas to match desk container or viewport
-    function resizeCanvas() {
-        shadowCanvas.width = deskContainer.offsetWidth / 1.8; // Use deskContainer for relative scaling
-        shadowCanvas.height = deskContainer.offsetHeight / 2.8;
-        console.log('Canvas resized to:', shadowCanvas.width, shadowCanvas.height);
+    // Function to trigger the gif periodically
+    function runGifPeriodically() {
+        // console.log("Restarting GIF...");
+
+        // Create a timestamp to force a fresh reload of the GIF
+        const gifSrc = 'assets/images/HandDrawn2_4.gif';
+        stickManGif.src = ''; // Temporarily remove src
+        setTimeout(() => {
+            stickManGif.src = `${gifSrc}?t=${new Date().getTime()}`; // Add timestamp to force reload
+        }, 100); // Small delay to allow DOM refresh
+
+        // Set a timer to trigger the GIF again after 30 seconds
+        setTimeout(runGifPeriodically, 40000); // 30 seconds
     }
 
-    // Call resizeCanvas on load and on window resize
-    window.addEventListener('load', resizeCanvas);
-    window.addEventListener('resize', resizeCanvas);
-
-    const texture = new Image();
-    texture.src = '../build/assets/images/tree-leaves-shadows.png'; // Ensure correct path
-
-    texture.onload = () => {
-        console.log('Texture loaded successfully');
-
-
-        function drawSoftSpotlight() {
-            ctx.clearRect(0, 0, shadowCanvas.width, shadowCanvas.height);
-
-            // Randomize positions for two spotlights
-            const light1X = Math.random() * shadowCanvas.width;
-            const light1Y = Math.random() * shadowCanvas.height;
-            const light2X = Math.random() * shadowCanvas.width;
-            const light2Y = Math.random() * shadowCanvas.height;
-
-            // Configure shadow for soft spotlight
-            ctx.save();
-            ctx.beginPath();
-            ctx.arc(light1X, light1Y, shadowCanvas.width / 3, 5, Math.PI * 20, false);
-            ctx.fillStyle = 'rgba(255, 255, 255, 0.03)';
-            ctx.shadowColor = 'rgba(255, 255, 255, 0)';
-            ctx.shadowBlur = 10000;
-            ctx.fill();
-            ctx.restore();
-
-            // Draw the second spotlight
-            ctx.save();
-            ctx.beginPath();
-            ctx.arc(light2X, light2Y, shadowCanvas.width / 3, 3, Math.PI * 15, false);
-            ctx.fillStyle = 'rgba(255, 255, 255, 0.05)';
-            ctx.shadowColor = 'rgba(255, 255, 255, 0)';
-            ctx.shadowBlur = 10000;
-            ctx.fill();
-            ctx.restore();
-
-            // Apply texture as a mask
-            ctx.globalCompositeOperation = 'destination-in';
-            ctx.drawImage(texture, 0, 0, shadowCanvas.width, shadowCanvas.height);
-
-            // Reset composite operation
-            ctx.globalCompositeOperation = 'source-over';
-        }
-
-        function animateSoftSpotlight() {
-            drawSoftSpotlight();
-            setTimeout(animateSoftSpotlight, Math.random() * 10000);
-        }
-
-        animateSoftSpotlight();
-    };
-
-    texture.onerror = () => {
-        console.error('Failed to load texture image');
-    };
+    // Initial call to run the GIF
+    runGifPeriodically();
 });
-
 
 document.addEventListener('DOMContentLoaded', () => {
     const deskContainer = document.body; // Target the desktop background layer
@@ -341,6 +262,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Animate the dust motes
     let lastTimestamp = 0;
+
     function animateDustMotes(timestamp) {
         const deltaTime = timestamp - lastTimestamp;
         lastTimestamp = timestamp;
@@ -361,8 +283,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
 //Magnify feature for the Magazine
 
-(function($) {
-    $.fn.magnify = function(oOptions) {
+// Initialize magnify plugin when DOM content is loaded
+document.addEventListener('DOMContentLoaded', function () {
+    const images = document.querySelectorAll('.magnify-image');
+    images.forEach((image) => {
+        $(image).magnify(); // Use the magnify plugin for each image
+    });
+});
+
+(function ($) {
+    $.fn.magnify = function (oOptions) {
         // Default options
         oOptions = $.extend({
             'src': '',
@@ -375,14 +305,15 @@ document.addEventListener('DOMContentLoaded', () => {
             'magnifiedHeight': null,
             'limitBounds': false,
             'mobileCloseEvent': 'touchstart',
-            'afterLoad': function(){}
+            'afterLoad': function () {
+            }
         }, oOptions);
 
         var $that = this, // Preserve scope
             $html = $('html'),
 
             // Initiate
-            init = function(el) {
+            init = function (el) {
                 var $image = $(el),
                     $anchor = $image.closest('a'),
                     oDataAttr = {};
@@ -411,25 +342,25 @@ document.addEventListener('DOMContentLoaded', () => {
                     oContainerOffset, // Relative to document
                     oImageOffset,     // Relative to container
                     // Get true offsets
-                    getOffset = function() {
+                    getOffset = function () {
                         var o = $container.offset();
                         // Store offsets from container border to image inside
                         // NOTE: .offset() does NOT take into consideration image border and padding.
                         oImageOffset = {
-                            'top': ($image.offset().top-o.top) + parseInt($image.css('border-top-width')) + parseInt($image.css('padding-top')),
-                            'left': ($image.offset().left-o.left) + parseInt($image.css('border-left-width')) + parseInt($image.css('padding-left'))
+                            'top': ($image.offset().top - o.top) + parseInt($image.css('border-top-width')) + parseInt($image.css('padding-top')),
+                            'left': ($image.offset().left - o.left) + parseInt($image.css('border-left-width')) + parseInt($image.css('padding-left'))
                         };
                         o.top += oImageOffset['top'];
                         o.left += oImageOffset['left'];
                         return o;
                     },
                     // Hide the lens
-                    hideLens = function() {
-                        if ($lens.is(':visible')) $lens.fadeOut(oOptions['speed'], function() {
+                    hideLens = function () {
+                        if ($lens.is(':visible')) $lens.fadeOut(oOptions['speed'], function () {
                             // $html.removeClass('magnifying').trigger('magnifyend'); // Reset overflow-x
                         });
                     },
-                    moveLens = function(e) {
+                    moveLens = function (e) {
                         // Reinitialize if image initially hidden
                         if (!nImageHeight) {
                             refresh();
@@ -458,7 +389,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             nY = (nPosY - oContainerOffset['top']) - oOptions['touchBottomOffset'];
                         // Toggle magnifying lens
                         if (!$lens.is(':animated')) {
-                            if (nX>nBoundX && nX<nImageWidth-nBoundX && nY>nBoundY && nY<nImageHeight-nBoundY) {
+                            if (nX > nBoundX && nX < nImageWidth - nBoundX && nY > nBoundY && nY < nImageHeight - nBoundY) {
                                 if ($lens.is(':hidden')) {
                                     $html.addClass('magnifying').trigger('magnifystart'); // Hide overflow-x while zooming
                                     $lens.fadeIn(oOptions['speed']);
@@ -475,18 +406,18 @@ document.addEventListener('DOMContentLoaded', () => {
                                 // the mouse over the .magnify-image image. This allows us to get the ratio of
                                 // the pixel under the mouse pointer with respect to the image and use that to
                                 // position the large image inside the magnifying lens.
-                                var nRatioX = -Math.round(nX/nImageWidth*nMagnifiedWidth-nLensWidth/2),
-                                    nRatioY = -Math.round(nY/nImageHeight*nMagnifiedHeight-nLensHeight/2);
+                                var nRatioX = -Math.round(nX / nImageWidth * nMagnifiedWidth - nLensWidth / 2),
+                                    nRatioY = -Math.round(nY / nImageHeight * nMagnifiedHeight - nLensHeight / 2);
                                 if (oOptions['limitBounds']) {
                                     // Enforce bounds to ensure only image is visible in lens
-                                    var nBoundRight = -Math.round((nImageWidth-nBoundX)/nImageWidth*nMagnifiedWidth-nLensWidth/2),
-                                        nBoundBottom = -Math.round((nImageHeight-nBoundY)/nImageHeight*nMagnifiedHeight-nLensHeight/2);
+                                    var nBoundRight = -Math.round((nImageWidth - nBoundX) / nImageWidth * nMagnifiedWidth - nLensWidth / 2),
+                                        nBoundBottom = -Math.round((nImageHeight - nBoundY) / nImageHeight * nMagnifiedHeight - nLensHeight / 2);
                                     // Left and right edges
-                                    if (nRatioX>0) nRatioX = 0;
-                                    else if (nRatioX<nBoundRight) nRatioX = nBoundRight;
+                                    if (nRatioX > 0) nRatioX = 0;
+                                    else if (nRatioX < nBoundRight) nRatioX = nBoundRight;
                                     // Top and bottom edges
-                                    if (nRatioY>0) nRatioY = 0;
-                                    else if (nRatioY<nBoundBottom) nRatioY = nBoundBottom;
+                                    if (nRatioY > 0) nRatioY = 0;
+                                    else if (nRatioY < nBoundBottom) nRatioY = nBoundBottom;
                                 }
                                 sBgPos = nRatioX + 'px ' + nRatioY + 'px';
                             }
@@ -495,8 +426,8 @@ document.addEventListener('DOMContentLoaded', () => {
                             // mouse coordinates. If you hover on the image now, you should see the magnifying
                             // lens in action.
                             $lens.css({
-                                'top': Math.round(nY-nLensHeight/2) + oImageOffset['top'] + 'px',
-                                'left': Math.round(nX-nLensWidth/2) + oImageOffset['left'] + 'px',
+                                'top': Math.round(nY - nLensHeight / 2) + oImageOffset['top'] + 'px',
+                                'left': Math.round(nX - nLensWidth / 2) + oImageOffset['left'] + 'px',
                                 'background-position': sBgPos
                             });
                         }
@@ -509,8 +440,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (!isNaN(+oDataAttr['finalHeight'])) oOptions['finalHeight'] = +oDataAttr['finalHeight'];
                 if (!isNaN(+oDataAttr['magnifiedWidth'])) oOptions['magnifiedWidth'] = +oDataAttr['magnifiedWidth'];
                 if (!isNaN(+oDataAttr['magnifiedHeight'])) oOptions['magnifiedHeight'] = +oDataAttr['magnifiedHeight'];
-                if (oDataAttr['limitBounds']==='true') oOptions['limitBounds'] = true;
-                if (typeof window[oDataAttr['afterLoad']]==='function') oOptions.afterLoad = window[oDataAttr['afterLoad']];
+                if (oDataAttr['limitBounds'] === 'true') oOptions['limitBounds'] = true;
+                if (typeof window[oDataAttr['afterLoad']] === 'function') oOptions.afterLoad = window[oDataAttr['afterLoad']];
 
                 // Implement touch point bottom offset only on mobile devices
                 if (/\b(Android|BlackBerry|IEMobile|iPad|iPhone|Mobile|Opera Mini)\b/.test(navigator.userAgent)) {
@@ -531,7 +462,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 // this image object.
                 var elZoomImage = new Image();
                 $(elZoomImage).on({
-                    'load': function() {
+                    'load': function () {
                         // [2] Got image dimensions OK.
 
                         // Fix overlap bug at the edges during magnification
@@ -563,11 +494,11 @@ document.addEventListener('DOMContentLoaded', () => {
                         oContainerOffset = getOffset(); // Required by refresh()
                         // Set zoom boundaries
                         if (oOptions['limitBounds']) {
-                            nBoundX = (nLensWidth/2) / (nMagnifiedWidth/nImageWidth);
-                            nBoundY = (nLensHeight/2) / (nMagnifiedHeight/nImageHeight);
+                            nBoundX = (nLensWidth / 2) / (nMagnifiedWidth / nImageWidth);
+                            nBoundY = (nLensHeight / 2) / (nMagnifiedHeight / nImageHeight);
                         }
                         // Enforce non-native large image size?
-                        if (nMagnifiedWidth!==elZoomImage.width || nMagnifiedHeight!==elZoomImage.height) {
+                        if (nMagnifiedWidth !== elZoomImage.width || nMagnifiedHeight !== elZoomImage.height) {
                             $lens.css('background-size', nMagnifiedWidth + 'px ' + nMagnifiedHeight + 'px');
                         }
                         // Store zoom dimensions for mobile plugin
@@ -587,7 +518,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         // Handle mouse movements
                         $container.off().on({
                             'mousemove touchmove': moveLens,
-                            'mouseenter': function() {
+                            'mouseenter': function () {
                                 // Need to update offsets here to support accordions
                                 oContainerOffset = getOffset();
                             },
@@ -595,8 +526,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         });
 
                         // Prevent magnifying lens from getting "stuck"
-                        if (oOptions['timeout']>=0) {
-                            $container.on('touchend', function() {
+                        if (oOptions['timeout'] >= 0) {
+                            $container.on('touchend', function () {
                                 setTimeout(hideLens, oOptions['timeout']);
                             });
                         }
@@ -609,7 +540,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             var $map = $('map[name=' + sUsemap.slice(1) + ']');
                             // Image map needs to be on the same DOM level as image source
                             $image.after($map);
-                            $container.click(function(e) {
+                            $container.click(function (e) {
                                 // Trigger click on image below lens at current cursor position
                                 if (e.clientX || e.clientY) {
                                     $lens.hide();
@@ -617,14 +548,14 @@ document.addEventListener('DOMContentLoaded', () => {
                                         e.clientX || e.originalEvent.touches[0].clientX,
                                         e.clientY || e.originalEvent.touches[0].clientY
                                     );
-                                    if (elPoint.nodeName==='AREA') {
+                                    if (elPoint.nodeName === 'AREA') {
                                         elPoint.click();
                                     } else {
                                         // Workaround for buggy implementation of elementFromPoint()
                                         // See https://bugzilla.mozilla.org/show_bug.cgi?id=1227469
-                                        $('area', $map).each(function() {
+                                        $('area', $map).each(function () {
                                             var a = $(this).attr('coords').split(',');
-                                            if (nX>=a[0] && nX<=a[2] && nY>=a[1] && nY<=a[3]) {
+                                            if (nX >= a[0] && nX <= a[2] && nY >= a[1] && nY <= a[3]) {
                                                 this.click();
                                                 return false;
                                             }
@@ -639,14 +570,14 @@ document.addEventListener('DOMContentLoaded', () => {
                             $anchor.css('display', 'inline-block');
                             // Disable parent anchor if it's sourcing the large image
                             if ($anchor.attr('href') && !(oDataAttr['src'] || oOptions['src'])) {
-                                $anchor.click(function(e) {
+                                $anchor.click(function (e) {
                                     e.preventDefault();
                                 });
                             }
                         }
 
                     },
-                    'error': function() {
+                    'error': function () {
                         // Clean up
                         elZoomImage = null;
                     }
@@ -657,9 +588,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Simple debounce
             nTimer = 0,
-            refresh = function() {
+            refresh = function () {
                 clearTimeout(nTimer);
-                nTimer = setTimeout(function() {
+                nTimer = setTimeout(function () {
                     $that.destroy();
                     $that.magnify(oOptions);
                 }, 100);
@@ -670,8 +601,8 @@ document.addEventListener('DOMContentLoaded', () => {
          */
 
         // Turn off zoom and reset to original state
-        this.destroy = function() {
-            this.each(function() {
+        this.destroy = function () {
+            this.each(function () {
                 var $this = $(this),
                     $lens = $this.prev('div.magnify-lens'),
                     sStyle = $this.data('originalStyle');
@@ -690,105 +621,10 @@ document.addEventListener('DOMContentLoaded', () => {
         // Handle window resizing
         $(window).resize(refresh);
 
-        return this.each(function() {
+        return this.each(function () {
             // Initiate magnification powers
             init(this);
         });
 
     };
 }(jQuery));
-
-// (function($) {
-//     // Ensure this is loaded after jquery.magnify.js
-//     if (!$.fn.magnify) return;
-//     // Add required CSS
-//     $('<style>' +
-//         '.lens-mobile {' +
-//         'position:fixed;' +
-//         'top:0;' +
-//         'left:0;' +
-//         'width:100%;' +
-//         'height:100%;' +
-//         'background:#ccc;' +
-//         'display:none;' +
-//         'overflow:scroll;' +
-//         '-webkit-overflow-scrolling:touch;' +
-//         'z-index:9999;' +
-//         '}' +
-//         '.magnify-mobile>.close {' +
-//         'position:fixed;' +
-//         'top:10px;' +
-//         'right:10px;' +
-//         'width:32px;' +
-//         'height:32px;' +
-//         'background:#333;' +
-//         'border-radius:16px;' +
-//         'color:#fff;' +
-//         'display:inline-block;' +
-//         'font:normal bold 20px/32px sans-serif;' +
-//         'letter-spacing:0;' +
-//         'opacity:0.8;' +
-//         'text-align:center;' +
-//         'text-shadow:none;' +
-//         'z-index:9999;' +
-//         '}' +
-//         '@media only screen and (min-device-width:320px) and (max-device-width:773px) {' +
-//         '/* Assume QHD (1440 x 2560) is highest mobile resolution */' +
-//         '.lens-mobile { display:block; }' +
-//         '}' +
-//         '</style>').appendTo('head');
-//     // Ensure .magnify is rendered
-//     $(window).on('load', function() {
-//         $('body').append('<div class="magnify-mobile"><div class="lens-mobile"></div></div>');
-//         var $lensMobile = $('.lens-mobile');
-//         // Only enable mobile zoom on smartphones
-//         if ($lensMobile.is(':visible') && !!('ontouchstart' in window || (window.DocumentTouch && document instanceof DocumentTouch) || navigator.msMaxTouchPoints)) {
-//             var $magnify = $('.magnify'),
-//                 $magnifyMobile = $('.magnify-mobile');
-//             // Disable desktop magnifying lens
-//             $magnify.off();
-//             // Initiate mobile zoom
-//             // NOTE: Fixed elements inside a scrolling div have issues in iOS, so we need to insert the
-//             // close icon at the same level as the lens.
-//             $magnifyMobile.hide().append('<i class="close">&times;</i>');
-//             // Hook up event handlers
-//             $magnifyMobile.children('.close').on($magnify.data('mobileCloseEvent'), function() {
-//                 $magnifyMobile.toggle();
-//             });
-//             $magnify.children('img').on({
-//                 'touchend': function() {
-//                     // Only execute on tap
-//                     if ($(this).data('drag')) return;
-//                     var oScrollOffset = $(this).data('scrollOffset');
-//                     $magnifyMobile.toggle();
-//                     // Zoom into touch point
-//                     $lensMobile.scrollLeft(oScrollOffset.x);
-//                     $lensMobile.scrollTop(oScrollOffset.y);
-//                 },
-//                 'touchmove': function() {
-//                     // Set drag state
-//                     $(this).data('drag', true);
-//                 },
-//                 'touchstart': function(e) {
-//                     // Render zoom image
-//                     // NOTE: In iOS background-image is url(...), not url("...").
-//                     $lensMobile.html('<img src="' + $(this).prev('.magnify-lens').css('background-image').replace(/url\(["']?|["']?\)/g, '') + '" alt="">');
-//                     // Determine zoom position
-//                     var $magnifyImage = $(this),
-//                         oZoomSize = $magnifyImage.data('zoomSize'),
-//                         nX = e.originalEvent.touches[0].pageX - $magnifyImage.offset().left,
-//                         nXPct = nX / $magnifyImage.width(),
-//                         nY = e.originalEvent.touches[0].pageY - $magnifyImage.offset().top,
-//                         nYPct = nY / $magnifyImage.height();
-//                     // Store scroll offsets
-//                     $magnifyImage.data('scrollOffset', {
-//                         'x': (oZoomSize.width*nXPct)-(window.innerWidth/2),
-//                         'y': (oZoomSize.height*nYPct)-(window.innerHeight/2)
-//                     });
-//                     // Reset drag state
-//                     $(this).data('drag', false);
-//                 }
-//             });
-//         }
-//     });
-// }(jQuery));

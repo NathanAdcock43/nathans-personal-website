@@ -6,143 +6,67 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
           integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
-    <!--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">-->
     <title>NAA-Professional-Profile</title>
 </head>
 <body>
+<!-- Canvas for dust motes  -->
 <canvas id="shadowCanvas"></canvas>
-<div class="note-shadow"></div>
+
+<!-- Notepad containing dynamically rendered date and stickman -->
 <div class="notes">
-    <div class="dateContainer"><p id="dayOfWeek"></p>
-        <div id="monthNums"> <p></p> <p id="dayOfMonth1"></p><p id="dayOfMonth2"></p> </div>
+    <div class="dateContainer">
+        <p id="dayOfWeek"></p>
+        <div id="monthNums">
+            <p></p>
+            <p id="dayOfMonth1"></p>
+            <p id="dayOfMonth2"></p>
+        </div>
         <p id="Month"></p>
     </div>
 
-    <img class="stickMan" id="stickManGif"
-         src="assets/images/HandDrawn2_4.gif"
-         alt="StickMan">
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const stickManGif = document.getElementById('stickManGif');
-            console.log("GIF loaded:", stickManGif);
-
-            // Function to trigger the gif periodically
-            function runGifPeriodically() {
-                console.log("Restarting GIF...");
-
-                // Create a timestamp to force a fresh reload of the GIF
-                const gifSrc = 'assets/images/HandDrawn2_4.gif';
-                stickManGif.src = ''; // Temporarily remove src
-                setTimeout(() => {
-                    stickManGif.src = `${gifSrc}?t=${new Date().getTime()}`; // Add timestamp to force reload
-                }, 100); // Small delay to allow DOM refresh
-
-                // Set a timer to trigger the GIF again after 30 seconds
-                setTimeout(runGifPeriodically, 30000); // 30 seconds
-            }
-
-            // Initial call to run the GIF
-            runGifPeriodically();
-        });
-    </script>
+    <img class="stickMan" id="stickManGif" src="assets/images/HandDrawn2_4.gif" alt="StickMan">
 </div>
 
+<!-- Coins with sheen animations -->
 <div class="coin"></div>
 <div class="coin-two"></div>
 
+<!-- Watch with dynamic shadow and hands -->
 <div class="watch-shadow"></div>
 <div class="watch">
     <div class="clock">
-        <div class="hand hour"
-             data-hour-hand></div>
-        <div class="hand minute"
-             data-minute-hand></div>
-        <div class="hand second"
-             data-second-hand></div>
-
+        <div class="hand hour" data-hour-hand></div>
+        <div class="hand minute" data-minute-hand></div>
+        <div class="hand second" data-second-hand></div>
     </div>
 </div>
-<!--<img class="blind-light" src="Classroom-Images/venitian-blinds-large3.gif" alt="blind-light">-->
-<!--    <div class="plank-floor">-->
+
+<!-- Main content area with the newspaper layout -->
 <main id="swup" class="entire-paper transition-fade">
-    <div class="paper-date" id="issueDate"></div>
+    <div class="paper-date" id="issueDate"></div> <!-- Static issue date -->
     <div class="head">
-        <header class="title">Aspiring Architects Qtly.</header>
+        <header class="title">Aspiring Architects Qtly.</header> <!-- Static header -->
     </div>
 
     <nav class="subhead">
-        <a id="about" class="links" href="index.html">Font Page</a>
+        <!-- Navigation links to subpages -->
+        <a id="about" class="links" href="index.html">Front Page</a>
         <a id="work" class="links" href="html/NAA-ProfileClassifieds.html">Classifieds</a>
         <a id="projects" class="links" href="html/NAA-ProfileTech.html">Technology</a>
         <a id="comics" class="links" href="html/NAA-ProfileComics.html">Comics</a>
         <a id="contact" class="links" href="html/NAA-ProfileDrawer.html">Editorial</a>
     </nav>
 
-    </div>
+    <!-- Placeholder for dynamically changing content -->
     <div class="content">
-        <div class="columns">
-            <div class="column">
-                <img class="headshot campus" src="assets/images/PersonalSiteHeadShotMasked@0.25x.png"
-                     alt="Personal Headshot" style="filter: contrast(90%);">
-                <div class="head"><span class="headline hl3">Finding a Home in Tech</span>
-                    <p><span class="headline hl2">About me</span></p></div>
-                <p class="magnifiable">For Nathan Adcock, the journey from nonprofit leadership to senior software development has
-                    been nothing short of transformative. "I’ve always been driven by the desire to make a difference," Nathan shares,
-                    reflecting on his 12 years of management experience in the social services sector. Now, with over four years in software
-                    development, he’s channeling that same passion into technology.
-                    Currently, a Software Developer Level 3 at a leading 340B healthcare solutions company, Nathan has become a key contributor
-                    to innovative projects, including secure data masking tools and disaster recovery utilities. With a deep commitment to solving
-                    complex problems, Nathan is driven by a singular vision: leveraging technology to create impactful, scalable solutions. He is now
-                    setting his sights on advanced roles in architecture and infrastructure, with the ultimate goal of becoming an AI Systems Architect
-                    by 2029.</p></div>
-            <div class="column">
-                <div class="head"><span class="headline hl5">Language cognition trends upward!</span>
-                    <span class="headline hl2"> no signs of slowing</span></p></div>
-                <p class="magnifiable">Analyist project an unfettered expansion of Nathan's coding and related skills during the coming months and likely years. The last six months has been a real
-                bear, but has produced unfettered growth in the Front and Back end Sectors. </p>
-
-                <span class="headline hl6">"I gained experience in: HTML, CSS, JavaScript, jQuery, Java, Spring, and MySQL"</span>
-
-                <p class="magnifiable">
-                    Current valuations indicate an exuberant rise in comprehension for such valued commodities as React and Angular as Nathan starts new projects featuring both. Cyclically adjusted trends might warrant a safe investment of time in long
-                    used and trusted institutions such as Python or another compiled language such as C#, however at this juncture it is too early to tell.
-                </p>
-                <figure class="figure">
-                    <img class="media" src="assets/images/knowledgeChart.png" alt="">
-                    <figcaption class="figcaption">"Learning trends upward"</figcaption>
-                </figure>
-            </div>
-            <div class="column">
-                <div class="head"><span class="headline hl1">Nothing ventured, Nothing gained!</span>
-                    <p><span class="headline hl2">Codeup, CaptureRx, then ...</span>
-                    </p></div>
-                </p>
-                <figure class="figure">
-                    <img class="campus" src="assets/images/codeupCampus2.png" alt="Campus" style="filter: contrast(90%);">
-                    <figcaption class="figcaption">"Codeup's downtown SA campus entrance"</figcaption>
-                </figure>
-                <p class="magnifiable">Codeup is a fully-immersive, project-based, and intensive 22 week full stack career accelerator that
-                    provides students with 670 hours of expert instruction in software development. When asked, Nathan had this to say, "The instructors were excellent, and I gained experience in:
-                    HTML, CSS, JavaScript, jQuery, Java, Spring, and MySQL to name a few".
-                    He Graduated in July 2021 and received a position as a
-                    web application developer just around the corner from code up at CaptureRx a month after. It has been almost 4 years since then and
-                    and Nathan has gained skills in all aspects of Cumulus (CaptureRx's flagship hospital software) as well as in managing the cloud server architechure on
-                    which it runs.
-                </p>
-            </div>
-        </div>
-
+        <!-- This section will vary based on the active page -->
     </div>
-
 </main>
+
+<!-- Coffee cup with animated steam -->
 <div class="vapour">
     <div class="coaster">
         <div class="coffee">
-            <span style="--v:1;"></span>
-            <span style="--v:2;"></span>
-            <span style="--v:5;"></span>
-            <span style="--v:4;"></span>
-            <span style="--v:6;"></span>
             <span style="--v:19;"></span>
             <span style="--v:7;"></span>
             <span style="--v:8;"></span>
@@ -154,17 +78,14 @@
     </div>
 </div>
 
+<!-- Magazine with magnifying glass effect -->
 <div class="magnify" id="mag">
-    <img src="assets/images/popElectronicsLrg.png" alt="" class="magnify-image magazine" data-magnify-src="assets/images/popElectronicsLrg.png">
+    <img src="assets/images/popElectronicsLrg.png" alt="" class="magnify-image magazine"
+         data-magnify-src="assets/images/popElectronicsLrg.png">
 </div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
         crossorigin="anonymous"></script>
-<script>
-    $(document).ready(function() {
-        $('img').magnify();
-    });
-</script>
 <script src="https://unpkg.com/swup@latest/dist/swup.min.js"></script>
 <script src="js/NAA-Professional-Profile.js" rel="script"></script>
 </body>

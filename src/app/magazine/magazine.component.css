@@ -1,0 +1,58 @@
+/*Popular electronics magazine*/
+.magazine{
+    top: calc(50% - 100px);
+    left: calc(50% + 75px);
+    transform: rotateZ(-3deg);
+    z-index: 15;
+    width: 600px;
+    height: 800px;
+    background: url("../../assets/images/popElectronicsLrg.png") no-repeat center;
+    background-size: 100%;
+    position: absolute;
+}
+
+html.magnifying > body {
+    overflow-x: hidden !important;
+}
+.magnify,
+.magnify > .magnify-lens,
+.magnify-mobile,
+.lens-mobile { /* Reset */
+    min-width: 0;
+    min-height: 0;
+    animation: none;
+    border: none;
+    float: none;
+    margin: 0;
+    opacity: 1;
+    outline: none;
+    overflow: visible;
+    padding: 0;
+    text-indent: 0;
+    transform: none;
+    transition: none;
+}
+.magnify {
+    top: calc(50% + 190px);
+    left: calc(50% + 475px);
+    position: absolute;
+    width: auto;
+    height: auto;
+    box-shadow: none;
+    display: inline-block;
+    z-index: inherit;
+}
+.magnify > .magnify-lens { /* Magnifying lens */
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 100%;
+    border: 3px double #999ea1;
+    cursor: none;
+    display: none;
+    z-index: 99;
+}
+.magnify > .magnify-lens.loading {
+    background: #333 !important;
+    opacity: 0.8;
+}

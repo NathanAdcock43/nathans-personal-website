@@ -1,0 +1,130 @@
+/* Container for the entire content */
+.content {
+    font-size: 0;
+    line-height: 0;
+    word-spacing: -0.31em;
+    display: inline-block;
+    margin: 30px 2% 0 2%;
+    overflow: auto;
+    height: 950px;
+    overflow-scrolling: touch;
+}
+
+/* Columns layout */
+.columns {
+    width: 90%;
+    margin-left: 6%;
+    margin-right: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.column {
+    font-size: 14px;
+    line-height: 20px;
+    width: 30%;
+    display: inline-block;
+    padding: 0 1% 0 1%;
+    vertical-align: top;
+    margin-bottom: 50px;
+    transition: all 0.7s;
+}
+
+.column + .column {
+    border-left: 1px solid #4b4b4b;
+}
+
+/* Classified headers */
+.classifiedHeader {
+    background-color: #4b4b4b;
+    color: #c9c4be;
+    padding: 5px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Space between classified sections */
+.classifiedSpace {
+    margin-bottom: 5px !important;
+}
+
+/* Subheaders */
+.subheadCl {
+    padding: 0 !important;
+    font-size: 14px !important;
+    font-weight: bolder !important;
+    margin: 0 !important;
+}
+
+/* Links inside the content */
+.links {
+    border-right: solid #86807e thin;
+    text-decoration: none;
+    color: #4b4b4b;
+}
+
+.links:visited,
+.links:active {
+    color: #4b4b4b;
+}
+
+.links:hover {
+    color: rgba(75, 75, 75, 0.87);
+}
+
+/* Page title */
+.pageTitle {
+    margin: 0 0 0 1% !important;
+    padding: 0 !important;
+    font-weight: bolder;
+    letter-spacing: 10px;
+    font-size: 75px;
+    transform: scaleY(0.7);
+    transform-origin: 0 0;
+}
+
+/* Main title styling */
+.title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 50px;
+    display: flex;
+    justify-content: center;
+    text-transform: uppercase;
+    line-height: 72px;
+    margin-bottom: 20px;
+}
+
+/* Paper date styling */
+.paper-date {
+    font-family: 'Playfair Display', serif;
+    font-weight: bold;
+    font-size: 15px;
+    display: flex;
+    text-transform: uppercase;
+    margin: 30px 30px 10px 50px;
+}
+
+/* Magnifiable text effects */
+.magnifiable {
+    margin-bottom: 5px;
+    cursor: pointer;
+    transition: transform 0.2s, font-size 0.2s;
+}
+
+.magnifiable:hover {
+    font-size: 150%;
+    line-height: 100%;
+    word-spacing: 2px;
+}
+
+/* Secondary content adjustments */
+.secondaryHead {
+    margin: 0 10% 0 0 !important;
+}
+
+.secondaryPages {
+    margin: 0 !important;
+}

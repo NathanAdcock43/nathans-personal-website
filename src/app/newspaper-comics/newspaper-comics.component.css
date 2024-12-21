@@ -1,0 +1,45 @@
+/* General content container */
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+    padding: 10px;
+    width: 90%;
+    overflow: hidden;
+}
+
+/* Comics-specific content */
+.comicsContent {
+    margin: 0;
+    padding: 0;
+}
+
+/* Comics holder styling */
+.comicsHolder {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 85%;
+    padding-left: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Comics images styling */
+.comics {
+    filter: grayscale(10%) opacity(0.95); /* Adds grayscale and slight opacity */
+    mix-blend-mode: multiply; /* Ensures blending with backgrounds */
+    width: 100%; /* Responsive width */
+    transition: transform 0.2s ease; /* Smooth hover scaling effect */
+}
+
+.comics:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+}
+
+/* Magnify-image styling */
+.magnify-image {
+    cursor: zoom-in; /* Indicates zoom functionality */
+}

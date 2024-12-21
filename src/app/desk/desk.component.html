@@ -1,0 +1,41 @@
+<body>
+<div class="notes">
+    <!-- NotePad with Drawn Character -->
+    <app-notes></app-notes>
+</div>
+
+<div class="watch">
+    <!-- the Wrist Watch -->
+    <app-watch></app-watch>
+</div>
+
+<main id="swup"
+      class="entire-paper transition-fade">
+    <!-- Newspaper and main articles -->
+    <app-newspaper></app-newspaper>
+</main>
+
+<div class="vapour">
+    <!-- Coffee Cup -->
+    <app-vapour></app-vapour>
+</div>
+
+<div class="magnify"
+     id="mag">
+    <!-- The Magazine with Magnifying Glass-->
+    <app-magnify></app-magnify>
+</div>
+
+<!-- Include required scripts -->
+<script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+        crossorigin="anonymous"></script>
+<script>
+    $(document).ready(function () {
+        $('img').magnify();
+    });
+</script>
+<script src="https://unpkg.com/swup@latest/dist/swup.min.js"></script>
+<script src="js/NAA-Professional-Profile.js"
+        rel="script"></script>
+</body>

@@ -1,0 +1,118 @@
+* {
+    box-sizing: border-box;
+}
+
+.autorace{
+    top: calc(50% - 150px);
+    left: calc(50% - 225px);
+    transform: rotateZ(-7deg);
+    display: block;
+    z-index: 15;
+    width: 300px;
+    height: 800px;
+    background: url("../../assets/images/Mattel_AutoRace.png") no-repeat center;
+    background-size: 100%;
+    position: absolute;
+}
+
+#gametoggle {
+    top: 460px;
+    left: 180px;
+    position: relative;
+    display: flex;
+    z-index: 10;
+    background: url("../../assets/images/gameToggle.png") no-repeat center;
+    background-size: 100%;
+    width: 55px;
+    height: 55px;
+    border: transparent solid 2px;
+    -webkit-animation: blinkingToggle 1s ease-in-out infinite alternate;
+    -moz-animation: blinkingToggle 1s ease-in-out infinite alternate;
+    animation: blinkingToggle 1s ease-in-out infinite alternate;
+    cursor: pointer;
+}
+
+#gametoggle:hover {
+    border: transparent solid 3px;
+}
+
+@-webkit-keyframes blinkingToggle {
+    from {
+        filter: contrast(100%);
+    }
+    to {
+        filter: contrast(160%);
+    }
+}
+
+.neon {
+    position: relative;
+    display: flex;
+    color: #fc0707;
+    font-family: monospace;
+    -webkit-animation: neon1 .8s ease-in-out infinite alternate;
+    -moz-animation: neon1 .8s ease-in-out infinite alternate;
+    animation: neon1 .8s ease-in-out infinite alternate;
+}
+
+#car-1{
+    transform: rotateZ(-45deg);
+    top: 460px;
+    left: 150px;
+    visibility: hidden;
+}
+
+#car-2{
+    transform: rotateZ(-45deg);
+    top: 460px;
+    left: 107px;
+}
+
+#obstacle-1{
+    top: 400px;
+    left: 227px;
+    visibility: hidden;
+}
+
+#obstacle-2{
+    top: 425px;
+    left: 185px;
+    visibility: hidden;
+}
+
+#obstacle-3{
+    top: 350px;
+    left: 193px;
+    visibility: hidden;
+}
+
+#obstacle-4{
+    top: 370px;
+    left: 150px;
+    visibility: hidden;
+}
+
+#lap-1{
+    top: 275px;
+    left: 200px;
+    font-weight: bolder;
+    visibility: hidden;
+}
+
+#lap-2{
+    top: 260px;
+    left: 200px;
+    font-weight: bolder;
+    visibility: hidden;
+}
+
+@-webkit-keyframes neon1 {
+    from {
+        text-shadow: 0 0 30px #a04f4f, 0 0 40px #d27f7f, 0 0 50px #ee7777, 0 0 60px #ff1177,
+        0 0 70px #ff1177, 0 0 80px #ff1177, 0 0 85px #ff1177, 0 0 90px #ff1177;
+    }
+    to {
+        text-shadow: 0 0 15px #d46161, 0 0 25px #ef7373, 0 0 35px #d25353, 0 0 45px #ff1177,
+        0 0 55px #ff1177, 0 0 65px #ff1177, 0 0 75px #ff1177, 0 0 85px #ff1177;
+    }
+}

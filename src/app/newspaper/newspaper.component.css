@@ -1,0 +1,96 @@
+/* General layout and styling for the entire paper */
+.entire-paper {
+    position: absolute;
+    top: calc(50% - 400px);
+    left: calc(50% - 345px);
+    transform: translate(-50px, -50px);
+    transform-origin: top;
+    width: 925px;
+    height: 1200px;
+    background: url("../../assets/images/clean-newspaper-trimmed.png");
+    background-size: cover;
+    padding: 5em 0 0 0;
+    margin: 0 auto;
+    font-family: 'Droid Serif', serif;
+    font-size: 14px;
+    color: #4b4b4b;
+    overflow: hidden;
+}
+
+/* Navigation bar and links styling */
+.subhead {
+    display: flex;
+    justify-content: space-evenly;
+    text-transform: uppercase;
+    border-bottom: 2px solid #4b4b4b;
+    border-top: 2px solid #4b4b4b;
+    padding: 12px 0 12px 0;
+    margin: 0 10% 0 1%;
+    text-decoration: none;
+    color: #4b4b4b;
+}
+
+.links {
+    border-right: solid #86807e thin;
+    text-decoration: none;
+    color: #4b4b4b;
+}
+
+.links:visited {
+    color: #4b4b4b;
+}
+
+.links:hover {
+    color: rgba(75, 75, 75, 0.87);
+}
+
+.links:active {
+    color: #4b4b4b;
+}
+
+a {
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    padding: 1em;
+    margin: -.25em;
+    width: 19%;
+    text-align: center;
+}
+
+/* Styling for the header and title section */
+.head {
+    margin: 0 10% 20px 0;
+    text-align: center;
+}
+
+.title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 50px;
+    display: flex;
+    justify-content: center;
+    text-transform: uppercase;
+    line-height: 72px;
+    margin-bottom: 20px;
+}
+
+.paper-date {
+    font-family: 'Playfair Display', serif;
+    font-weight: 20;
+    font-size: 15px;
+    display: flex;
+    text-transform: uppercase;
+    margin: 30px 30px 10px 50px;
+}
+
+/* Transition effects for page animations */
+html.is-animating .transition-fade {
+    opacity: 1;
+    transform: translateX(100%);
+}
+
+html.is-leaving .transition-fade {
+    opacity: 0;
+    transform: translateX(0);
+}

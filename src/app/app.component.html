@@ -1,0 +1,13 @@
+<div class="curtain" *ngIf="isCurtainVisible"></div>
+
+<div *ngIf="isDeskBackground; else drawerView">
+    <!-- Desk Module Components -->
+    <app-desk></app-desk>
+</div>
+
+<ng-template #drawerView>
+    <!-- Drawer Module Components -->
+    <app-desk-drawer></app-desk-drawer>
+</ng-template>
+
+<button class="drawer-toggle" (click)="toggleView()">Toggle View</button>
