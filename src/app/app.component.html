@@ -1,3 +1,10 @@
+<nav>
+    <a routerLink="/" routerLinkActive="active">Desk</a>
+    <a routerLink="/drawer" routerLinkActive="active">Drawer</a>
+</nav>
+
+<router-outlet></router-outlet> <!-- Dynamic content rendered here -->
+
 <div class="curtain" *ngIf="isCurtainVisible"></div>
 
 <div *ngIf="isDeskBackground; else drawerView">

@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { CommonModule } from '@angular/common';
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { RouterModule, Routes } from '@angular/router';
+
 import { DeskComponent } from './desk/desk.component';
 import { DeskDrawerComponent } from './desk-drawer/desk-drawer.component';
 import { DrawerButtonComponent } from './drawer-button-component/drawer-button-component.component';
@@ -21,33 +19,31 @@ import { CoffeeComponent } from "./coffee/coffee.component";
 import { CloseDrawerComponent } from "./close-drawer/close-drawer.component";
 import { NewspaperComicsComponent } from "./newspaper-comics/newspaper-comics.component";
 
+const routes: Routes = [
+  { path: '', component: DeskComponent }, // Default route (Desk View)
+  { path: 'drawer', component: DeskDrawerComponent }, // Desk Drawer View
+  { path: 'drawer-button-component', component: DrawerButtonComponent},
+  { path: 'close-drawer', component: CloseDrawerComponent },
+  { path: 'game', component: GameComponent },
+  { path: 'floppy-disk', component: FloppyDiskComponent },
+  { path: 'contact-form', component: ContactFormComponent },
+  { path: 'watch', component: WatchComponent },
+  { path: 'notepad', component: NotepadComponent },
+  { path: 'newspaper-tech', component: NewspaperTechComponent },
+  { path: 'newspaper-comics', component: NewspaperComicsComponent },
+  { path: 'newspaper-frontpage', component: NewspaperFrontpageComponent },
+  { path: 'newspaper-classified', component: NewspaperClassifiedComponent },
+  { path: 'magnify', component: MagnifyComponent },
+  { path: 'dust-motes', component: DustMotesComponent },
+  { path: 'coins', component: CoinsComponent },
+  { path: 'coffee', component: CoffeeComponent },
+  { path: '**', redirectTo: '', pathMatch: 'full' }, // Fallback route
+];
+
+
 @NgModule({
-    declarations: [
-        AppComponent, // Root component
-        DeskComponent,
-        DeskDrawerComponent,
-        DrawerButtonComponent,
-        CloseDrawerComponent,
-        CoffeeComponent,
-        CoinsComponent,
-        ContactFormComponent,
-        DustMotesComponent,
-        FloppyDiskComponent,
-        GameComponent,
-        MagnifyComponent, // Magazine Component
-        NewspaperClassifiedComponent,
-        NewspaperComicsComponent,
-        NewspaperFrontpageComponent,
-        NewspaperTechComponent,
-        NotepadComponent,
-        WatchComponent,
-    ],
-    imports: [
-        BrowserModule,
-        CommonModule,
-        AppRoutingModule, // Import routing module
-    ],
-    providers: [],
-    bootstrap: [AppComponent], // The entry point of the app
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule],
 })
-export class AppModule {}
+export class AppRoutingModule {}
+
