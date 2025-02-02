@@ -1,7 +1,13 @@
 import { Component, Renderer2 } from '@angular/core';
+import {CloseDrawerComponent} from "../close-drawer/close-drawer.component";
+import {GameComponent} from "../game/game.component";
+import {FloppyDiskComponent} from "../floppy-disk/floppy-disk.component";
+import {ContactFormComponent} from "../contact-form/contact-form.component";
 
 @Component({
   selector: 'app-desk-drawer',
+  standalone: true,
+  imports: [CloseDrawerComponent, GameComponent, FloppyDiskComponent, ContactFormComponent],
   templateUrl: './desk-drawer.component.html',
   styleUrls: ['./desk-drawer.component.css']
 })

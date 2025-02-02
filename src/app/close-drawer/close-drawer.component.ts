@@ -6,7 +6,10 @@ import { Component, ElementRef, Renderer2 } from '@angular/core';
   styleUrls: ['./close-drawer.component.css']
 })
 export class CloseDrawerComponent {
-  constructor(private el: ElementRef, private renderer: Renderer2) {}
+  constructor(
+      private el: ElementRef,
+      private renderer: Renderer2
+  ) {}
 
   ngAfterViewInit(): void {
     const drawerElement = this.el.nativeElement.querySelector('#closeDrawer');

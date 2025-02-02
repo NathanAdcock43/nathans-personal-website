@@ -2,8 +2,9 @@ import { Component, Renderer2 } from '@angular/core';
 
 @Component({
   selector: 'drawer-button-component',
-  templateUrl: './drawer-button.component.html',
-  styleUrls: ['./drawer-button.component.css']
+  standalone: true,
+  templateUrl: './drawer-button-component.component.html',
+  styleUrls: ['./drawer-button-component.component.css']
 })
 export class DrawerButtonComponent {
   private isDeskBackground = true; // Track current state (desk or drawer)

@@ -9,7 +9,7 @@ import { NotepadComponent } from "./notepad/notepad.component";
 import { NewspaperTechComponent } from "./newspaper-tech/newspaper-tech.component";
 import { NewspaperFrontpageComponent } from "./newspaper-frontpage/newspaper-frontpage.component";
 import { NewspaperClassifiedComponent } from "./newspaper-classified/newspaper-classified.component";
-import { MagnifyComponent } from "./magazine/magazine.component";
+import { MagazineComponent } from "./magazine/magazine.component";
 import { GameComponent } from "./game/game.component";
 import { FloppyDiskComponent } from "./floppy-disk/floppy-disk.component";
 import { DustMotesComponent } from "./dust-motes/dust-motes.component";
@@ -18,6 +18,7 @@ import { CoinsComponent } from "./coins/coins.component";
 import { CoffeeComponent } from "./coffee/coffee.component";
 import { CloseDrawerComponent } from "./close-drawer/close-drawer.component";
 import { NewspaperComicsComponent } from "./newspaper-comics/newspaper-comics.component";
+import { NotFoundComponent } from "./not-found/not-found.component";
 
 const routes: Routes = [
   { path: '', component: DeskComponent }, // Default route (Desk View)
@@ -33,11 +34,11 @@ const routes: Routes = [
   { path: 'newspaper-comics', component: NewspaperComicsComponent },
   { path: 'newspaper-frontpage', component: NewspaperFrontpageComponent },
   { path: 'newspaper-classified', component: NewspaperClassifiedComponent },
-  { path: 'magnify', component: MagnifyComponent },
+  { path: 'magazine', component: MagazineComponent },
   { path: 'dust-motes', component: DustMotesComponent },
   { path: 'coins', component: CoinsComponent },
   { path: 'coffee', component: CoffeeComponent },
-  { path: '**', redirectTo: '', pathMatch: 'full' }, // Fallback route
+  { path: '**', component: NotFoundComponent }, // Show a 404 page instead of redirecting home
 ];
 
 

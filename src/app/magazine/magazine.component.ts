@@ -1,11 +1,11 @@
 import { Component, AfterViewInit, ElementRef, Renderer2, HostListener } from '@angular/core';
 
 @Component({
-  selector: 'app-magnify',
-  templateUrl: './magnify.component.html',
-  styleUrls: ['./magnify.component.css']
+  selector: 'app-magazine',
+  templateUrl: './magazine.component.html',
+  styleUrls: ['./magazine.component.css']
 })
-export class MagnifyComponent implements AfterViewInit {
+export class MagazineComponent implements AfterViewInit {
   private defaultOptions = {
     src: '',
     speed: 100,
@@ -26,13 +26,13 @@ export class MagnifyComponent implements AfterViewInit {
   constructor(private el: ElementRef, private renderer: Renderer2) {}
 
   ngAfterViewInit(): void {
-    const magnifyContainer = this.el.nativeElement.querySelector('.magnify');
+    const magazineContainer = this.el.nativeElement.querySelector('.magnify');
     const magnifyImage = this.el.nativeElement.querySelector('.magnify-image');
 
-    if (magnifyContainer && magnifyImage) {
-      this.initializeMagnify(magnifyContainer, magnifyImage);
+    if (magazineContainer && magnifyImage) {
+      this.initializeMagnify(magazineContainer, magnifyImage);
     } else {
-      console.error('Magnify container or image not found');
+      console.error('Magazine container or image not found');
     }
   }
 
@@ -119,8 +119,8 @@ export class MagnifyComponent implements AfterViewInit {
   onResize(): void {
     clearTimeout(this.resizeTimer);
     this.resizeTimer = setTimeout(() => {
-      // Logic to recalculate offsets, dimensions, or refresh magnify on window resize
-      console.log('Window resized, magnify components refreshed.');
+      // Logic to recalculate offsets, dimensions, or refresh Magazine on window resize
+      console.log('Window resized, Magazine components refreshed.');
     }, 100); // Debounce resize event
   }
 }

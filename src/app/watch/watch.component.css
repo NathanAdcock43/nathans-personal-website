@@ -20,7 +20,7 @@
     filter: drop-shadow(12px 12px 12px rgba(0, 0, 0, 0.2));
     background-size: 100%;
     transform: rotateZ(-25deg);
-    opacity: 0.75; /
+    opacity: 0.75;
 z-index: 1;
 }
 

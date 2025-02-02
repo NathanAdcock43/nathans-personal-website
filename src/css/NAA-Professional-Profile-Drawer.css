@@ -14,7 +14,7 @@ body {
     flex-direction: column;
     /*padding: 25% 25%;*/
     overflow: scroll;
-    overflow-scrolling: auto;
+    /*overflow-scrolling: auto;*/
     /*object-fit: initial;*/
     background: url("../assets/images/DeskDrawer.png") no-repeat center;
     background-size: 2000px;
@@ -184,18 +184,18 @@ body {
 }
 
 
-.closeDrawer{
-    top: calc(50% - 100px);
-    left: calc(50% - 945px);
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    z-index: 1;
-    position: absolute;
-    height: 60px;
-    text-transform: uppercase;
-    cursor: pointer;
-}
+/*.closeDrawer{*/
+/*    top: calc(50% - 100px);*/
+/*    left: calc(50% - 945px);*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    align-content: center;*/
+/*    z-index: 1;*/
+/*    position: absolute;*/
+/*    height: 60px;*/
+/*    text-transform: uppercase;*/
+/*    cursor: pointer;*/
+/*}*/
 
 /*.close:hover{*/
 /*    background-color: white;*/
@@ -245,7 +245,7 @@ body {
 
 @font-face {
     font-family: "Indie_Flower";
-    src: url("../fonts/Indie_Flower/IndieFlower-Regular.ttf") format("truetype");
+    src: url("../assets/fonts/Indie_Flower/IndieFlower-Regular.ttf") format("truetype");
 }
 
 

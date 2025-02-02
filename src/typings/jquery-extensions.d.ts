@@ -1,7 +1,10 @@
-import 'jquery';
+import * as $ from 'jquery';
 
-declare module 'jquery' {
+declare global {
     interface JQuery {
-        magnify(options?: any): JQuery;
+        customFunction(): void;
     }
 }
+
+export {};
+
