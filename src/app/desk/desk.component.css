@@ -1,1 +1,9 @@
 /* Inherited from the global style sheet */
+
+* {
+    box-sizing: border-box;
+}
+
+*, *::after, *::before {
+    box-sizing: border-box;
+}

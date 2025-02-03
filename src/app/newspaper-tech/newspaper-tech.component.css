@@ -83,7 +83,6 @@
 }
 
 /* Image styling */
-.techPics,
 .moviePic {
     width: 100%;
     height: auto;
@@ -91,11 +90,6 @@
     -webkit-filter: grayscale(40%) opacity(0.95);
     filter: grayscale(40%) opacity(0.95);
     mix-blend-mode: multiply;
-}
-
-.moviePic {
-    -webkit-filter: grayscale(50%) contrast(110%) opacity(0.95);
-    filter: grayscale(50%) contrast(110%) opacity(0.95);
 }
 
 /* Links and interactive elements */
@@ -112,4 +106,11 @@
 
 .links:hover {
     color: rgba(75, 75, 75, 0.87);
+}
+
+.techPics {
+    -webkit-filter: grayscale(40%) opacity(0.95);
+    filter: grayscale(40%) opacity(0.95);
+    mix-blend-mode: multiply;
+    width: 100%;
 }

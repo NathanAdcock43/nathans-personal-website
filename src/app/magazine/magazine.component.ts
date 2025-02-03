@@ -26,11 +26,11 @@ export class MagazineComponent implements AfterViewInit {
   constructor(private el: ElementRef, private renderer: Renderer2) {}
 
   ngAfterViewInit(): void {
-    const magazineContainer = this.el.nativeElement.querySelector('.magnify');
+    const magnifyContainer = this.el.nativeElement.querySelector('.magnify');
     const magnifyImage = this.el.nativeElement.querySelector('.magnify-image');
 
-    if (magazineContainer && magnifyImage) {
-      this.initializeMagnify(magazineContainer, magnifyImage);
+    if (magnifyContainer && magnifyImage) {
+      this.initializeMagnify(magnifyContainer, magnifyImage);
     } else {
       console.error('Magazine container or image not found');
     }
@@ -65,6 +65,8 @@ export class MagazineComponent implements AfterViewInit {
   private createLens(container: HTMLElement): HTMLElement {
     const lens = this.renderer.createElement('div');
     this.renderer.addClass(lens, 'magnify-lens');
+    this.renderer.addClass(lens, 'paper-weight');
+    this.renderer.addClass(lens, 'glass');
     this.renderer.setStyle(lens, 'width', `${this.lensSize}px`);
     this.renderer.setStyle(lens, 'height', `${this.lensSize}px`);
     this.renderer.setStyle(lens, 'display', 'none');
@@ -80,6 +82,7 @@ export class MagazineComponent implements AfterViewInit {
     this.renderer.setStyle(lens, 'background-image', `url(${zoomImage.src})`);
     this.renderer.setStyle(lens, 'background-repeat', 'no-repeat');
     this.renderer.setStyle(lens, 'background-size', `${magnifiedWidth}px ${magnifiedHeight}px`);
+    this.renderer.setStyle(lens, 'left', `100px`);
 
     // Optional after-load callback
     if (typeof this.defaultOptions.afterLoad === 'function') {
@@ -92,26 +95,33 @@ export class MagazineComponent implements AfterViewInit {
     const lensSize = this.lensSize;
 
     // Calculate cursor position relative to the image
-    const x = event.clientX - rect.left - lensSize / 2;
-    const y = event.clientY - rect.top - lensSize / 2;
+    let x = (event.clientX - rect.left) + 30;
+    let y = event.clientY - rect.top;
 
-    // Ensure the lens stays within bounds
-    const maxX = rect.width - lensSize;
-    const maxY = rect.height - lensSize;
-    const boundedX = Math.max(0, Math.min(x, maxX));
-    const boundedY = Math.max(0, Math.min(y, maxY));
+    // Ensure lens stays within image bounds
+    const maxX = rect.width - lensSize / 3;
+    const maxY = rect.height - lensSize / 3;
+    x = Math.max(0, Math.min(x, maxX));
+    y = Math.max(0, Math.min(y, maxY));
 
-    // Update lens position
-    this.renderer.setStyle(lens, 'left', `${boundedX}px`);
-    this.renderer.setStyle(lens, 'top', `${boundedY}px`);
-    this.renderer.setStyle(lens, 'display', 'block');
-
-    // Update lens background position
+    // Compute zoom ratios
     const zoomFactorX = zoomImage.width / rect.width;
     const zoomFactorY = zoomImage.height / rect.height;
-    const bgPosX = -boundedX * zoomFactorX;
-    const bgPosY = -boundedY * zoomFactorY;
 
+    // Compute background positioning
+    let bgPosX = -x * zoomFactorX + lensSize / 3;
+    let bgPosY = -y * zoomFactorY + lensSize / 3;
+
+    // Ensure background doesn't go out of bounds
+    bgPosX = Math.max(-zoomImage.width + lensSize, Math.min(0, bgPosX));
+    bgPosY = Math.max(-zoomImage.height + lensSize, Math.min(0, bgPosY));
+
+    // Update lens position
+    this.renderer.setStyle(lens, 'left', `${x - lensSize / 2}px`);
+    this.renderer.setStyle(lens, 'top', `${y - lensSize / 2}px`);
+    this.renderer.setStyle(lens, 'display', 'block');
+
+    // Update magnified background position
     this.renderer.setStyle(lens, 'background-position', `${bgPosX}px ${bgPosY}px`);
   }
 

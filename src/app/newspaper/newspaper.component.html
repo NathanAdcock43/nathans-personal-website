@@ -1,5 +1,5 @@
 <!-- Main content area with the newspaper layout -->
-<main id="swup" class="entire-paper transition-fade">
+<main  class="entire-paper">
     <div class="paper-date" id="issueDate"></div> <!-- Static issue date -->
     <div class="head">
         <header class="title">Aspiring Architects Qtly.</header> <!-- Static header -->
@@ -7,14 +7,14 @@
 
     <nav class="subhead">
         <!-- Navigation links to subpages -->
-        <a id="about" class="links" href="index.html">Front Page</a>
-        <a id="work" class="links" href="html/NAA-ProfileClassifieds.html">Classifieds</a>
-        <a id="projects" class="links" href="html/NAA-ProfileTech.html">Technology</a>
-        <a id="comics" class="links" href="html/NAA-ProfileComics.html">Comics</a>
-        <a id="contact" class="links" href="html/NAA-ProfileDrawer.html">Editorial</a>
+        <a id="about" class="links" routerLink="/newspaper/frontpage" routerLinkActive="active">Front Page</a>
+        <a id="work" class="links" routerLink="/newspaper/classified" routerLinkActive="active">Classifieds</a>
+        <a id="projects" class="links" routerLink="/newspaper/tech" routerLinkActive="active">Technology</a>
+        <a id="comics" class="links" routerLink="/newspaper/comics" routerLinkActive="active">Comics</a>
+        <a id="contact" class="links" routerLink="/newspaper/editorial" routerLinkActive="active">Editorial</a>
     </nav>
 
-    <div class="content">
-        <!-- This section will vary based on the active page -->
+    <div>
+        <router-outlet></router-outlet>
     </div>
 </main>

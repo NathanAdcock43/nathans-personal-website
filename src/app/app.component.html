@@ -1,22 +1,13 @@
-<nav>
-    <a routerLink="/" routerLinkActive="active">Desk</a>
-    <a routerLink="/drawer" routerLinkActive="active">Drawer</a>
-</nav>
 
-<router-outlet></router-outlet> <!-- Dynamic content rendered here -->
+<router-outlet></router-outlet>
+<div class="curtain" *ngIf="uiState.isCurtainVisible"></div>
 
-<div class="curtain" *ngIf="isCurtainVisible"></div>
-
-<div *ngIf="isDeskBackground; else drawerView">
+<div *ngIf="uiState.isDeskBackground; else drawerView">
     <!-- Desk Module Components -->
-    <app-desk></app-desk>
+
 </div>
 
 <ng-template #drawerView>
     <!-- Drawer Module Components -->
-    <app-desk></app-desk>
     <app-desk-drawer></app-desk-drawer>
-    <drawer-button-component></drawer-button-component>
 </ng-template>
-
-<button class="drawer-toggle" (click)="toggleView()">Toggle View</button>

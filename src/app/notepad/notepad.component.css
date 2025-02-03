@@ -28,8 +28,8 @@
 
 .dateContainer{
     display: flex;
-    top: calc(50%  - 230px);
-    left: calc(50%  - 85px);
+    top: calc(50% - 230px);
+    left: calc(50% - 85px);
     width: 50%;
     justify-content: space-between;
     position: relative;
@@ -39,8 +39,6 @@
     display: flex;
     justify-content: space-between;
     width: 40%;
-
-
 }
 
 #dayOfWeek{

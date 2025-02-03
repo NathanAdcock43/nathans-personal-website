@@ -1,4 +1,4 @@
-import { Component, AfterViewInit } from '@angular/core';
+import {Component, AfterViewInit, HostListener} from '@angular/core';
 
 @Component({
   selector: 'app-dust-motes',
@@ -6,6 +6,8 @@ import { Component, AfterViewInit } from '@angular/core';
   styleUrls: ['./dust-motes.component.css']
 })
 export class DustMotesComponent implements AfterViewInit {
+  private particles: any[] = [];
+  private maxParticles = 70;
   ngAfterViewInit(): void {
     const canvas = document.getElementById('shadowCanvas') as HTMLCanvasElement;
     if (!canvas) {
@@ -19,6 +21,7 @@ export class DustMotesComponent implements AfterViewInit {
       return;
     }
 
+    this.startGeneratingParticles();
     this.initializeCanvas(ctx);
   }
 
@@ -28,19 +31,25 @@ export class DustMotesComponent implements AfterViewInit {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
-    // Example of rendering particles
-    const particles = this.createParticles(50);
-
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      particles.forEach((particle) => {
+
+      this.particles.forEach((particle, index) => {
         particle.x += particle.vx;
         particle.y += particle.vy;
+
+        // Ensure particles wrap around instead of disappearing
+        if (particle.x < 0) particle.x = canvas.width;
+        if (particle.x > canvas.width) particle.x = 0;
+        if (particle.y < 0) particle.y = canvas.height;
+        if (particle.y > canvas.height) particle.y = 0;
+
         ctx.beginPath();
         ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
         ctx.fillStyle = particle.color;
         ctx.fill();
       });
+
       requestAnimationFrame(animate);
     };
 
@@ -59,6 +68,30 @@ export class DustMotesComponent implements AfterViewInit {
         color: `rgba(255, 255, 255, ${Math.random()})`,
       });
     }
+
     return particles;
   }
+
+  private intervalId: any;
+
+  private startGeneratingParticles(): void {
+    this.intervalId = setInterval(() => {
+      console.log(`⏳ Running Interval: ${this.intervalId} at ${new Date().toLocaleTimeString()}`);
+      if (this.particles.length < this.maxParticles) {
+        const newParticle = this.createParticles(1)[0];
+        this.particles.push(newParticle);
+        console.log(`✅ Added new particle. Total: ${this.particles.length}`);
+      } else {
+        console.log(`⚠️ Max particles reached: ${this.particles.length}`);
+      }
+    }, 500);
+  }
+
+// Check if the interval is still running
+  @HostListener('window:focus')
+  checkInterval() {
+    console.log(`🔍 Interval Status: ${this.intervalId ? "Running" : "Stopped"}`);
+  }
+
+
 }
