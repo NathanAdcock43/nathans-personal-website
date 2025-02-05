@@ -44,7 +44,7 @@ export const routes: Routes = [
   { path: 'game', component: GameComponent },
   { path: 'floppy-disk', component: FloppyDiskComponent },
   { path: 'contact-form', component: ContactFormComponent },
-  { path: '**', component: NotFoundComponent }, // Show a 404 page instead of redirecting home
+  { path: '**', redirectTo: 'newspaper/frontpage', pathMatch: 'full' } // Catch all unknown routes and redirect to frontpage
 ];
 
 
