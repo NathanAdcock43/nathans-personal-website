@@ -1,6 +1,5 @@
 import { Component, AfterViewInit, Renderer2, OnInit } from '@angular/core';
 import {RouterLink, RouterLinkActive, RouterOutlet} from "@angular/router";
-import {NewspaperFrontpageComponent} from "../newspaper-frontpage/newspaper-frontpage.component";
 
 @Component({
   selector: 'app-newspaper',

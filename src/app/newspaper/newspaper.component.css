@@ -7,15 +7,19 @@
     transform-origin: top;
     width: 925px;
     height: 1200px;
-    background: url("../../assets/images/clean-newspaper-trimmed.png");
-    background-size: cover;
+    background: image-set(
+            url("../../assets/images/webp_sm/clean-newspaper-trimmed.webp") 1x,
+            url("../../assets/images/png_sm/clean-newspaper-trimmed.png") 1x
+    );
+    background-size: 100%;
     padding: 5em 0 0 0;
     margin: 0 auto;
     font-family: 'Droid Serif', serif;
     font-size: 14px;
     color: #4b4b4b;
-    overflow: hidden;
+    overflow: auto;
 }
+
 
 /*transitions for paper content between pages*/
 

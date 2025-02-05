@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../src/assets/css/NAA-Professional-Profile.css">
+    <link rel="stylesheet" href="../unused_items/css/NAA-Professional-Profile.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
           integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
@@ -24,7 +24,11 @@
         <p id="Month"></p>
     </div>
 
-    <img class="stickMan" id="stickManGif" src="assets/images/HandDrawn2_4.gif" alt="StickMan">
+    <img class="stickMan" id="stickManGif"
+         ngSrc="assets/images/HandDrawn2_4.gif"
+         alt="StickMan"
+         height="1800"
+         width="1200">
 </div>
 
 <!-- Coins with sheen animations -->
@@ -80,8 +84,13 @@
 
 <!-- Magazine with magnifying glass effect -->
 <div class="magnify" id="mag">
-    <img src="assets/images/popElectronicsLrg.png" alt="" class="magnify-image magazine"
-         data-magnify-src="assets/images/popElectronicsLrg.png">
+    <picture>
+        <source srcset="assets/images/webp_sm/popElectronicsLrg.webp" type="image/webp">
+        <img ngSrc="assets/images/png_sm/popElectronicsLrg.png"
+             alt="Pop Electronics Large" class="magnify-image magazine"
+             height="882"
+             width="694">
+    </picture>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="

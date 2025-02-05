@@ -1,4 +1,5 @@
 /*Desk Background */
+/* Desk Background */
 .desk-background {
     position: relative;
     top: -100px;
@@ -6,14 +7,14 @@
     left: 0;
     transform: skew(-2deg);
     transform-origin: top;
-    /*height: auto;*/
     display: flex;
     flex-direction: column;
-    /*padding: 25% 25%;*/
     overflow: scroll;
     overscroll-behavior: auto;
-    /*object-fit: initial;*/
-    background: url('/assets/images/Desk-Background.png') no-repeat center center;
+    background: image-set(
+            url('/assets/images/webp_sm/Desk-Background.webp') 1x,
+            url('/assets/images/png_sm/Desk-Background.png') 1x
+    ) no-repeat center center;
     background-size: 2300px;
     font-family: Arial;
     height: 1400px;
@@ -27,16 +28,17 @@
     left: 0;
     transform: skew(-2deg);
     transform-origin: top;
-    /*height: auto;*/
     display: flex;
     flex-direction: column;
-    /*padding: 25% 25%;*/
     overflow: scroll;
     overscroll-behavior: auto;
-    /*object-fit: initial;*/
-    background: url('/assets/images/DeskDrawer.png') no-repeat center center;
+    background: image-set(
+            url('/assets/images/webp_sm/DeskDrawer.webp') 1x,
+            url('/assets/images/png_sm/DeskDrawer.png') 1x
+    ) no-repeat center center;
     background-size: 2000px;
     font-family: Arial;
     height: 1250px;
 }
+
 

@@ -1,8 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import {NgOptimizedImage} from "@angular/common";
 
 @Component({
   selector: 'app-notepad',
   templateUrl: './notepad.component.html',
+  imports: [
+    NgOptimizedImage
+  ],
   styleUrls: ['./notepad.component.css']
 })
 export class NotepadComponent implements OnInit {
@@ -14,7 +18,7 @@ export class NotepadComponent implements OnInit {
     this.updateDate();
     setTimeout(function() {
       document.getElementById("delayedButton").classList.add("show");
-    }, 16000); // 30 seconds delay
+    }, 14000); // 30 seconds delay
   }
 
   private updateDate(): void {

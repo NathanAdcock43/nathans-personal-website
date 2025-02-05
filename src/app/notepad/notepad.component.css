@@ -7,7 +7,10 @@
     left: calc(50% + 520px);
     width: 375px;
     height: 900px;
-    background: url("../../assets/images/note_shadow.png") no-repeat center;
+    background: image-set(
+            url("../../assets/images/webp_sm/note_shadow.webp") 1x,
+            url("../../assets/images/png_sm/note_shadow.png") 1x
+    ) no-repeat center;
     background-size: 100%;
     filter: drop-shadow(10px 3px 8px rgba(0, 0, 0, 0.2));
     opacity: .50;
@@ -20,7 +23,10 @@
     left: calc(50% + 500px);
     width: 375px;
     height: 900px;
-    background: url("../../assets/images/noteRoller.png") no-repeat center;
+    background: image-set(
+            url("../../assets/images/webp_sm/noteRoller.webp") 1x,
+            url("../../assets/images/png_sm/noteRoller.png") 1x
+    ) no-repeat center;
     background-size: 100%;
     position: absolute;
     z-index: 2;
@@ -69,19 +75,16 @@
 
 .stickMan {
     display: inline;
-    top: calc(50% - 180px);
-    left: calc(50% - 150px);
     filter: contrast(100%);
     mix-blend-mode: multiply;
-    width: 70%;
-    margin-left: 10px;
-    height: 400px;
-    position: relative;
+    object-fit: contain;
+    margin-top: 15%;
+    padding: 15%;
 }
 
 .overlay-button {
     position: relative;
-    top: 27%; /* Centers the button */
+    top: 70%; /* Centers the button */
     left: 75%;
     transform: translate(-50%, -50%);
     background-color: rgba(0, 0, 0, 0.7);
@@ -89,8 +92,9 @@
     border: none;
     padding: 10px 10px;
     font-size: 16px;
+    font-family: Akaya_Kanadaka, ariel, sans-serif;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 50px;
     opacity: 0;
     visibility: hidden;
     transition: opacity 1s ease-in-out;

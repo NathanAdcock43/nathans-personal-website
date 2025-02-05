@@ -29,18 +29,35 @@
 
 /* Comics images styling */
 .comics {
+    height: auto;
     filter: grayscale(10%) opacity(0.95); /* Adds grayscale and slight opacity */
     mix-blend-mode: multiply; /* Ensures blending with backgrounds */
     width: 100%; /* Responsive width */
     transition: transform 0.2s ease; /* Smooth hover scaling effect */
+    padding: 3%;
 }
 
 .comics:hover {
-    transform: scale(1.05); /* Slight zoom on hover */
+    transform: scale(1.1); /* Slight zoom on hover */
 }
 
 /* Magnify-image styling */
 .magnify-image {
     cursor: zoom-in; /* Indicates zoom functionality */
+}
+
+/* General container for columns */
+.columns {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 90%;
+    margin: 1px 5% 5% auto;
+}
+
+/* Individual column styling */
+.column {
+    width: 45%;
+    padding: 0 0 0 5%;
 }
 

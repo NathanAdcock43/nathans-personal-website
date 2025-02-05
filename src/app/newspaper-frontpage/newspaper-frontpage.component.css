@@ -100,6 +100,11 @@
     mix-blend-mode: multiply;
 }
 
+.chart {
+    width: 100%;
+    height: auto;
+}
+
 .figure {
     margin: 20px auto;
     text-align: center;

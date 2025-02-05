@@ -6,7 +6,10 @@
     z-index: 15;
     width: 600px;
     height: 800px;
-    background: url("../../assets/images/popElectronicsLrg.png") no-repeat center;
+    background: image-set(
+            url("../../assets/images/webp_sm/popElectronicsLrg.webp") 1x,
+            url("../../assets/images/png_sm/popElectronicsLrg.png") 1x
+    ) no-repeat center;
     background-size: 100%;
     position: absolute;
 }

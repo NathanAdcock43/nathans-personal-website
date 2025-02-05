@@ -29,7 +29,7 @@ export const routes: Routes = [
       { path: 'newspaper',
         component: NewspaperComponent,
         children: [
-          { path: '', redirectTo: 'frontpage', pathMatch: 'full' },
+          { path: '', redirectTo: 'frontpage', pathMatch: 'prefix' },
           { path: 'frontpage', component: NewspaperFrontpageComponent },
           { path: 'classified', component: NewspaperClassifiedComponent },
           { path: 'tech', component: NewspaperTechComponent },

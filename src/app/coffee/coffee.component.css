@@ -50,7 +50,10 @@
     display: flex;
     width: 280px;
     height: 280px;
-    background: url("../../assets/images/Coffee.png") no-repeat center;
+    background: image-set(
+            url("../../assets/images/webp_sm/Coffee.webp") 1x,
+            url("../../assets/images/png_sm/Coffee.png") 1x
+    ) no-repeat center;
     background-size: 100%;
     position: relative;
 }
@@ -60,8 +63,10 @@
     display: flex;
     width: 300px;
     height: 290px;
-    background: url("../../assets/images/LeatherCoaster.png") no-repeat center;
-    /*filter: brightness(90%) contrast(0.8) sepia(15%);1*/
+    background: image-set(
+            url("../../assets/images/webp_sm/LeatherCoaster.webp") 1x,
+            url("../../assets/images/png_sm/LeatherCoaster.png") 1x
+    ) no-repeat center;
     background-size: 100%;
     position: relative;
     box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.8), 10px 10px 20px rgba(0, 0, 0, 0.4);
