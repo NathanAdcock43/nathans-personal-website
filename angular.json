@@ -25,6 +25,7 @@
             "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.app.json",
             "baseHref": "/",
+            "deployUrl": "/",
             "assets": ["src/assets", "src/favicon.ico"],
             "styles": ["src/styles.css"],
             "scripts": []

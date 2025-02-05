@@ -12,14 +12,17 @@ export class NotepadComponent implements OnInit {
 
   ngOnInit(): void {
     this.updateDate();
+    setTimeout(function() {
+      document.getElementById("delayedButton").classList.add("show");
+    }, 16000); // 30 seconds delay
   }
 
   private updateDate(): void {
     const currentDate = new Date();
-    const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    const days = ['Sun', 'Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat'];
     const months = [
-      'January', 'February', 'March', 'April', 'May', 'June',
-      'July', 'August', 'September', 'October', 'November', 'December'
+      'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+      'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
     ];
 
     this.dayOfWeek = days[currentDate.getDay()];

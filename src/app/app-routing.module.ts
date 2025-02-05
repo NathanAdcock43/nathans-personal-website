@@ -12,9 +12,9 @@ import { FloppyDiskComponent } from "./floppy-disk/floppy-disk.component";
 import { ContactFormComponent } from "./contact-form/contact-form.component";
 import { CloseDrawerComponent } from "./close-drawer/close-drawer.component";
 import { NewspaperComicsComponent } from "./newspaper-comics/newspaper-comics.component";
-import { NotFoundComponent } from "./not-found/not-found.component";
 import {NewspaperComponent} from "./newspaper/newspaper.component";
 import {AppLayoutComponent} from "./app-layout/app-layout.component";
+import {NotFoundComponent} from "./not-found/not-found.component";
 
 export const routes: Routes = [
   {
@@ -44,7 +44,7 @@ export const routes: Routes = [
   { path: 'game', component: GameComponent },
   { path: 'floppy-disk', component: FloppyDiskComponent },
   { path: 'contact-form', component: ContactFormComponent },
-  { path: '**', redirectTo: 'newspaper/frontpage', pathMatch: 'full' } // Catch all unknown routes and redirect to frontpage
+  { path: '**', component: NotFoundComponent }, // Show a 404 page instead of redirecting home
 ];
 
 
