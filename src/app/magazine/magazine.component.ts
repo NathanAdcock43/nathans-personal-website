@@ -1,8 +1,12 @@
 import { Component, AfterViewInit, ElementRef, Renderer2, HostListener } from '@angular/core';
+import {NgOptimizedImage} from "@angular/common";
 
 @Component({
   selector: 'app-magazine',
   templateUrl: './magazine.component.html',
+  imports: [
+    NgOptimizedImage
+  ],
   styleUrls: ['./magazine.component.css']
 })
 export class MagazineComponent implements AfterViewInit {
