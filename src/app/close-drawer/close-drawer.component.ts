@@ -1,15 +1,24 @@
-import { Component, ElementRef, Renderer2 } from '@angular/core';
+import {AfterViewInit, Component, ElementRef, Renderer2} from '@angular/core';
+import {FaIconComponent, FaIconLibrary, IconDefinition} from "@fortawesome/angular-fontawesome";
+import {faLocationArrow, faTree, faTrophy, faUpload} from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: 'app-close-drawer',
   templateUrl: './close-drawer.component.html',
+  imports: [
+    FaIconComponent
+  ],
   styleUrls: ['./close-drawer.component.css']
 })
-export class CloseDrawerComponent {
+export class CloseDrawerComponent implements  AfterViewInit{
+  upLoad: IconDefinition = faUpload;
   constructor(
       private el: ElementRef,
-      private renderer: Renderer2
-  ) {}
+      private renderer: Renderer2,
+      library: FaIconLibrary
+  ) {
+    library.addIcons(faTree, faTrophy, faLocationArrow);
+  }
 
   ngAfterViewInit(): void {
     const drawerElement = this.el.nativeElement.querySelector('#closeDrawer');
@@ -28,8 +37,8 @@ export class CloseDrawerComponent {
 
       // Click event: Redirect to index.html
       this.renderer.listen(drawerElement, 'click', () => {
-        window.location.replace('index.html');
-        console.log('Redirecting to index.html');
+        window.location.replace('/newspaper/frontpage');
+        console.log('Redirecting to front-page');
       });
     } else {
       console.error('Required elements not found for hover and click events');

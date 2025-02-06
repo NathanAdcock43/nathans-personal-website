@@ -36,7 +36,7 @@ export class NewspaperComponent implements OnInit, AfterViewInit {
     this.setupHoverEffect('work', 'work history', 'classifieds');
     this.setupHoverEffect('projects', 'my projects', 'technology');
     this.setupHoverEffect('comics', 'for fun', 'comics');
-    this.setupHoverEffect('contact', 'Contact Me', 'Editorials');
+    this.setupHoverEffect('contact', 'Thank You!', 'Editorials');
   }
 
   private setupHoverEffect(elementId: string, hoverText: string, originalText: string): void {

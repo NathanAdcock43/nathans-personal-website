@@ -1,14 +1,27 @@
 import { Component, AfterViewInit, ElementRef, Renderer2 } from '@angular/core';
+import {FaIconComponent, FaIconLibrary, IconDefinition} from "@fortawesome/angular-fontawesome";
+import {faLocationArrow, faTree, faTrophy, faUpload} from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: 'app-game',
   templateUrl: './game.component.html',
+  imports: [
+    FaIconComponent
+  ],
   styleUrls: ['./game.component.css']
 })
 export class GameComponent implements AfterViewInit {
   private clicks: boolean = false;
+  carIcon: IconDefinition = faLocationArrow;
+  trophyIcon: IconDefinition = faTrophy;
+  treeIcon: IconDefinition = faTree;
+  upLoad: IconDefinition = faUpload;
 
-  constructor(private el: ElementRef, private renderer: Renderer2) {}
+  constructor(private el: ElementRef, private renderer: Renderer2, library: FaIconLibrary) {
+      library.addIcons(faTree, faTrophy, faLocationArrow);
+
+  }
+
 
   ngAfterViewInit(): void {
     const gameToggleButton = this.el.nativeElement.querySelector('#gametoggle');

@@ -116,3 +116,12 @@
     filter: grayscale(40%) opacity(0.95);
     mix-blend-mode: multiply;
 }
+
+.comics {
+    height: auto;
+    filter: grayscale(10%) opacity(0.95); /* Adds grayscale and slight opacity */
+    mix-blend-mode: multiply; /* Ensures blending with backgrounds */
+    width: 100%; /* Responsive width */
+    transition: transform 0.2s ease; /* Smooth hover scaling effect */
+    padding: 3%;
+}

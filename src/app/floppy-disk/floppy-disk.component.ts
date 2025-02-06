@@ -6,7 +6,7 @@ import { Component, AfterViewInit, ElementRef, Renderer2 } from '@angular/core';
   styleUrls: ['./floppy-disk.component.css']
 })
 export class FloppyDiskComponent implements AfterViewInit {
-  private resumePath: string = '../assets/other/NathanAResume2024.docx';
+  private resumePath: string = '/assets/other/Nathan_A_Resume_2_06_2025.pdf';
 
   constructor(private el: ElementRef, private renderer: Renderer2) {}
 
@@ -27,7 +27,7 @@ export class FloppyDiskComponent implements AfterViewInit {
     // Create a temporary link element for the download
     const link = document.createElement('a');
     link.href = this.resumePath;
-    link.download = 'NathanAResume2024.docx';
+    link.download = 'NathanAResume2025.docx';
     document.body.appendChild(link);
     link.click(); // Trigger the download
     document.body.removeChild(link);

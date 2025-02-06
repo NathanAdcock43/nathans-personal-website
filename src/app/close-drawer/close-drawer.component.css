@@ -1,16 +1,37 @@
-.closeDrawer{
-    top: calc(50% - 100px);
-    left: calc(50% - 945px);
+.closeDrawerCommon {
     display: flex;
     flex-direction: column;
     align-content: center;
     z-index: 1;
     position: absolute;
     height: 60px;
-    text-transform: uppercase;
-    cursor: pointer;
+    font-weight: bolder;
+    font-size: 40px;
+    font-stretch: expanded;
+    color: #8a7d7d;
 }
 
-/*.close:hover{*/
-/*    background-color: white;*/
-/*}*/
+/* Unique styles for closeDrawer */
+.closeDrawer {
+    top: 30%;
+    left: 43%;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-family: Oswald, serif;
+    justify-content: center;
+}
+
+/* Unique styles for closeDrawerIcon */
+.closeDrawerIcon {
+    top: 29%;
+    left: 48%;
+    transform: scale3d(500%, 200%, 200%);
+}
+
+#closeDrawer:hover{
+    font-family: Oswald, serif;
+    font-weight: bolder;
+    font-size: 40px;
+    font-stretch: expanded;
+    color: #676060;
+}

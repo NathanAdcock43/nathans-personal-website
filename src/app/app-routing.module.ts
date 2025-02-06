@@ -15,6 +15,7 @@ import { NewspaperComicsComponent } from "./newspaper-comics/newspaper-comics.co
 import {NewspaperComponent} from "./newspaper/newspaper.component";
 import {AppLayoutComponent} from "./app-layout/app-layout.component";
 import {NotFoundComponent} from "./not-found/not-found.component";
+import {NewspaperEditorialComponent} from "./newspaper-editorial/newspaper-editorial.component";
 
 export const routes: Routes = [
   {
@@ -33,7 +34,8 @@ export const routes: Routes = [
           { path: 'frontpage', component: NewspaperFrontpageComponent },
           { path: 'classified', component: NewspaperClassifiedComponent },
           { path: 'tech', component: NewspaperTechComponent },
-          { path: 'comics', component: NewspaperComicsComponent }
+          { path: 'comics', component: NewspaperComicsComponent },
+          { path: 'editorial', component: NewspaperEditorialComponent },
         ]
       }
     ]

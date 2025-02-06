@@ -1,13 +1,2 @@
 
 <router-outlet></router-outlet>
-<div class="curtain" *ngIf="uiState.isCurtainVisible"></div>
-
-<div *ngIf="uiState.isDeskBackground; else drawerView">
-    <!-- Desk Module Components -->
-
-</div>
-
-<ng-template #drawerView>
-    <!-- Drawer Module Components -->
-    <app-desk-drawer></app-desk-drawer>
-</ng-template>

@@ -1,0 +1,65 @@
+/* General container for columns */
+.columns {
+    justify-content: space-between;
+    width: 87%;
+    padding: 0 3% 0 0;
+    margin: 1px 5% 5% auto;
+    font-size: 25px;
+}
+
+/* Individual column styling */
+.column {
+    width: 45%;
+    padding: 0 0 0 5%;
+}
+
+.comics {
+    height: auto;
+    filter: grayscale(10%) opacity(0.95); /* Adds grayscale and slight opacity */
+    mix-blend-mode: multiply; /* Ensures blending with backgrounds */
+    width: 90%; /* Responsive width */
+    transition: transform 0.2s ease; /* Smooth hover scaling effect */
+    padding: 2% 0 0 5%;
+}
+
+.border{
+    display: flex;
+    width: 94%;
+    justify-content: space-evenly;
+    text-transform: uppercase;
+    border-bottom: 4px solid #4b4b4b;
+    border-top: 2px solid #4b4b4b;
+    padding: 2% 0 2% 0 !important;
+    text-decoration: none;
+    color: #4b4b4b;
+}
+
+/* Headlines for sub-sections */
+.headline {
+    font-family: 'Playfair Display', serif;
+    display: block;
+    text-align: center;
+    margin: 10px auto;
+    line-height: 1.2;
+}
+
+.hl2 {
+    font-weight: 400;
+    font-style: italic;
+    font-size: 25px;
+    margin: 10px 0;
+}
+
+.classifiedHeader {
+    width: 100%;
+    background-color: #4b4b4b;
+    color: #c9c4be;
+    padding: 5px;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+/* Space between classified sections */
+.classifiedSpace {
+    margin-bottom: 5px !important;
+}

@@ -82,29 +82,49 @@
     padding: 15%;
 }
 
+/*.overlay-button:hover {*/
+/*    background-color: rgba(0, 0, 0, 0.9);*/
+/*}*/
+
+.overlay-button.show {
+    opacity: 90%;
+    visibility: visible;
+}
+
 .overlay-button {
     position: relative;
     top: 70%; /* Centers the button */
-    left: 75%;
+    left: 65%;
     transform: translate(-50%, -50%);
-    background-color: rgba(0, 0, 0, 0.7);
-    color: white;
+
+    /*background: image-set(*/
+    /*        url("/assets/images/webp_sm/scribble.webp") 1x,*/
+    /*        url("/assets/images/png_sm/scribble.png") 1x*/
+    /*);*/
+    /*background-size: 50%; !* Makes the image repeat twice *!*/
+    /*background-repeat: repeat;*/
+    /*background-blend-mode: overlay;*/
+    color: rgba(75, 75, 75, 0.87); /* Change text color if needed */
     border: none;
-    padding: 10px 10px;
-    font-size: 16px;
-    font-family: Akaya_Kanadaka, ariel, sans-serif;
+    font-size: 20px;
+    font-family: Akaya_Kanadaka, Arial, sans-serif;
+    font-weight: bolder;
     cursor: pointer;
     border-radius: 50px;
-    opacity: 0;
+    opacity: 90%; /* Partial transparency */
     visibility: hidden;
     transition: opacity 1s ease-in-out;
 }
 
-.overlay-button:hover {
-    background-color: rgba(0, 0, 0, 0.9);
+.overlay-button:hover{
+    /*background: image-set(*/
+    /*        url("/assets/images/webp_sm/scribble_hover.webp") 1x,*/
+    /*        url("/assets/images/png_sm/scribble_hover.png") 1x*/
+    /*);*/
+    opacity: 40;
+    /*background-size: 50%;*/
+    /*background-repeat: repeat;*/
 }
 
-.overlay-button.show {
-    opacity: 1;
-    visibility: visible;
-}
+
+
