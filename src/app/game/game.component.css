@@ -3,7 +3,7 @@
 }
 
 .autorace {
-    top: calc(50% - 150px);
+    top: calc(50% - 200px);
     left: calc(50% - 225px);
     transform: rotateZ(-7deg);
     display: block;
@@ -44,19 +44,19 @@
 
 @-webkit-keyframes blinkingToggle {
     from {
-        filter: contrast(160%);
+        filter: contrast(160%) brightness(120%);
     }
     to {
-        filter: contrast(80%);
+        filter: contrast(80%) brightness(90%);
     }
 }
 
 @keyframes blinkingToggle {
     from {
-        filter: contrast(160%);
+        filter: contrast(160%) brightness(120%);
     }
     to {
-        filter: contrast(80%);
+        filter: contrast(80%) brightness(90%);
     }
 }
 

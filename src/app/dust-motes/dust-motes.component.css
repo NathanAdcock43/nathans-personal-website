@@ -1,8 +1,10 @@
 #shadowCanvas {
     transform: rotate(120deg);
-    position: fixed;
-    top: calc(50% - 550px);
+    position: absolute;
+    top: calc(20% - 550px);
     left: calc(30% - 1520px);
+    width: 70%;
+    height: 70%;
     z-index: 100;
     pointer-events: none;
 }

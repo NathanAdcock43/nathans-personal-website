@@ -27,7 +27,7 @@ export class FloppyDiskComponent implements AfterViewInit {
     // Create a temporary link element for the download
     const link = document.createElement('a');
     link.href = this.resumePath;
-    link.download = 'NathanAResume2025.docx';
+    link.download = 'NathanAResume2025.pdf';
     document.body.appendChild(link);
     link.click(); // Trigger the download
     document.body.removeChild(link);

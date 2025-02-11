@@ -1,6 +1,6 @@
 .watch {
     transform: rotateZ(-25deg);
-    top: calc(50% + 75px);
+    top: calc(50% - 75px);
     left: calc(50% - 675px);
     width: 150px;
     height: 1000px;
@@ -15,7 +15,7 @@
 
 .watch-shadow {
     position: absolute;
-    top: calc(50% + 75px);
+    top: calc(50% - 75px);
     left: calc(50% - 671px);
     width: 150px;
     height: 1000px;

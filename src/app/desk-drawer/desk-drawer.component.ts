@@ -17,8 +17,20 @@ export class DeskDrawerComponent implements OnInit {
   constructor(private renderer: Renderer2) {}
 
   ngOnInit(): void {
-    const body = document.body;
-    this.renderer.addClass(body, 'drawer-background');
+    const scrollContainer = document.querySelector('.scroll-container') as HTMLElement;
+
+    if (scrollContainer) {
+      this.renderer.setStyle(scrollContainer, 'background', `image-set(
+            url('/assets/images/webp_sm/DeskDrawer.webp') 1x,
+            url('/assets/images/png_sm/DeskDrawer.png') 1x
+        ) no-repeat center center`);
+
+      this.renderer.setStyle(scrollContainer, 'background-size', '2300px');
+
+      console.log('Switched to drawer background, and applied background-size: 2300px');
+    } else {
+      console.error('Scroll container not found');
+    }
   }
 
   // toggleBackground(): void {

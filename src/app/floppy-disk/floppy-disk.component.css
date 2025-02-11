@@ -3,7 +3,7 @@
 }
 
 .floppyDisk {
-    top: calc(50% + 65px);
+    top: calc(50% + 5px);
     left: calc(50% + 100px);
     transform: rotateZ(15deg);
     filter: contrast(130%);
@@ -27,19 +27,19 @@
 
 @-webkit-keyframes blinkingDisk {
     from {
-        filter: contrast(160%);
+        filter: contrast(230%);
     }
     to {
-        filter: contrast(80%);
+        filter: contrast(90%);
     }
 }
 
 @keyframes blinkingDisk {
     from {
-        filter: contrast(160%);
+        filter: contrast(230%);
     }
     to {
-        filter: contrast(80%);
+        filter: contrast(90%);
     }
 }
 

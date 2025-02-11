@@ -7,7 +7,7 @@ import {Component, AfterViewInit, HostListener} from '@angular/core';
 })
 export class DustMotesComponent implements AfterViewInit {
   private particles: any[] = [];
-  private maxParticles = 70;
+  private maxParticles = 50;
   ngAfterViewInit(): void {
     const canvas = document.getElementById('shadowCanvas') as HTMLCanvasElement;
     if (!canvas) {
@@ -45,7 +45,7 @@ export class DustMotesComponent implements AfterViewInit {
         if (particle.y > canvas.height) particle.y = 0;
 
         ctx.beginPath();
-        ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+        ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 3);
         ctx.fillStyle = particle.color;
         ctx.fill();
       });
@@ -64,7 +64,7 @@ export class DustMotesComponent implements AfterViewInit {
         y: Math.random() * window.innerHeight,
         vx: Math.random() * 2 - 1,
         vy: Math.random() * 2 - 1,
-        size: Math.random() * 5 + 1,
+        size: Math.random() * 2 + 1,
         color: `rgba(255, 255, 255, ${Math.random()})`,
       });
     }
@@ -81,8 +81,6 @@ export class DustMotesComponent implements AfterViewInit {
         const newParticle = this.createParticles(1)[0];
         this.particles.push(newParticle);
         console.log(`✅ Added new particle. Total: ${this.particles.length}`);
-      } else {
-        console.log(`⚠️ Max particles reached: ${this.particles.length}`);
       }
     }, 500);
   }

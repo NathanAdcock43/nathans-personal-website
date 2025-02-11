@@ -1,7 +1,7 @@
 .vapour {
     transform: rotateZ(0deg);
-    top: calc(50% + 50px);
-    left: calc(50% - 695px);
+    top: calc(50% - 100px);
+    left: calc(50% - 700px);
     position: absolute;
     z-index: 10;
 }

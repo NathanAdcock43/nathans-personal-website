@@ -3,7 +3,7 @@
 }
 
 .notepad {
-    top: calc(50% + 75px);
+    top: calc(50% + 25px);
     left: calc(50% + 550px);
     transform: rotateZ(2deg);
     display: flex;

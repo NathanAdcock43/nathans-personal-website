@@ -2,8 +2,8 @@
 
 .coin {
     position: absolute;
-    top: calc(50% - 87px);
-    left: calc(50% - 743px);
+    top: calc(50% - 187px);
+    left: calc(50% - 768px);
     width: 6rem;
     height: 6rem;
     background-color: transparent;
@@ -31,8 +31,8 @@
 /* Optionally add a second coin */
 .coin-two {
     position: absolute;
-    top: calc(50% - 130px);
-    left: calc(50% - 687px);
+    top: calc(50% - 230px);
+    left: calc(50% - 712px);
     width: 6rem;
     height: 6rem;
     background-color: transparent;

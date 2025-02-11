@@ -13,16 +13,18 @@ import {NotepadComponent} from "../notepad/notepad.component";
   selector: 'app-app-layout',
   standalone: true,
   template: `
-    <!-- Static elements that should persist across all views -->
-    <app-notepad></app-notepad>
-    <app-dust-motes></app-dust-motes>
-    <app-watch></app-watch>
-    <app-coins></app-coins>
-    <app-coffee></app-coffee>
-    <app-magazine></app-magazine>
+    <div class="scroll-container">
+      <!-- Static elements that should persist across all views -->
+      <app-notepad></app-notepad>
+      <app-dust-motes></app-dust-motes>
+      <app-watch></app-watch>
+      <app-coins></app-coins>
+      <app-coffee></app-coffee>
+      <app-magazine></app-magazine>
 
-    <!-- Router Outlet: This swaps between Desk and Newspaper -->
-    <router-outlet></router-outlet>
+      <!-- Router Outlet: This swaps between Desk and Newspaper -->
+      <router-outlet></router-outlet>
+    </div>
   `,
   imports: [
     CommonModule,
