@@ -60,11 +60,11 @@ export class DustMotesComponent implements AfterViewInit {
     const particles = [];
     for (let i = 0; i < count; i++) {
       particles.push({
-        x: Math.random() * window.innerWidth,
-        y: Math.random() * window.innerHeight,
+        x: Math.random(),
+        y: Math.random(),
         vx: Math.random() * 2 - 1,
         vy: Math.random() * 2 - 1,
-        size: Math.random() * 2 + 1,
+        size: Math.random() * 3 + 1,
         color: `rgba(255, 255, 255, ${Math.random()})`,
       });
     }
