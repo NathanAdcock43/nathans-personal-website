@@ -27,7 +27,7 @@ html, body {
 
 /* Drawer Open Background */
 .drawer-background {
-    top: -400px;
+    top: -220px;
     bottom: 0;
     position: relative;
     background: #31241f;
