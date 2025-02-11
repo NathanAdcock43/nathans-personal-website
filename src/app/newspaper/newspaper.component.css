@@ -16,7 +16,7 @@
     margin: 0 auto;
     font-family: 'Droid Serif', serif;
     font-size: 14px;
-    color: #4b4b4b;
+    color: #111111;
     overflow: auto;
 }
 
@@ -61,12 +61,12 @@
     display: flex;
     justify-content: space-evenly;
     text-transform: uppercase;
-    border-bottom: 2px solid #4b4b4b;
-    border-top: 2px solid #4b4b4b;
+    border-bottom: 2px solid #111111;
+    border-top: 2px solid #111111;
     padding: 12px 0 12px 0;
     margin: 0 10% 0 1%;
     text-decoration: none;
-    color: #4b4b4b;
+    color: #111111;
 }
 
 .links {
@@ -146,7 +146,7 @@ p {
 }
 
 .classifiedHeader{
-    background-color: #4b4b4b;
+    background-color: #111111;
     color: #c9c4be;
 }
 
@@ -210,7 +210,7 @@ p {
 }
 
 .column + .column {
-    border-left: 1px solid #4b4b4b;
+    border-left: 1px solid #111111;
 }
 
 .column .headline {
@@ -237,7 +237,7 @@ p {
 }
 
 .column .headline.hl2:before {
-    border-top: 1px solid #4b4b4b;
+    border-top: 1px solid #111111;
     content: '';
     width: 100px;
     height: 7px;
@@ -246,7 +246,7 @@ p {
 }
 
 .column .headline.hl2:after {
-    border-bottom: 1px solid #4b4b4b;
+    border-bottom: 1px solid #111111;
     content: '';
     width: 100px;
     height: 13px;
@@ -271,7 +271,7 @@ p {
 }
 
 .column .headline.hl4:before {
-    border-top: 1px solid #4b4b4b;
+    border-top: 1px solid #111111;
     content: '';
     width: 100px;
     height: 7px;
@@ -280,7 +280,7 @@ p {
 }
 
 .column .headline.hl4:after {
-    border-bottom: 1px solid #4b4b4b;
+    border-bottom: 1px solid #111111;
     content: '';
     width: 100px;
     height: 10px;
@@ -306,7 +306,7 @@ p {
 }
 
 .column .headline.hl6:before {
-    border-top: 1px solid #4b4b4b;
+    border-top: 1px solid #111111;
     content: '';
     width: 100px;
     height: 7px;
@@ -315,7 +315,7 @@ p {
 }
 
 .column .headline.hl6:after {
-    border-bottom: 1px solid #4b4b4b;
+    border-bottom: 1px solid #111111;
     content: '';
     width: 100px;
     height: 10px;
@@ -365,7 +365,7 @@ p {
 }
 
 .column .citation:before {
-    border-top: 1px solid #4b4b4b;
+    border-top: 1px solid #111111;
     content: '';
     width: 100px;
     height: 16px;
@@ -374,7 +374,7 @@ p {
 }
 
 .column .citation:after {
-    border-bottom: 1px solid #4b4b4b;
+    border-bottom: 1px solid #111111;
     content: '';
     width: 100px;
     height: 16px;
@@ -411,12 +411,12 @@ p {
     display: flex;
     justify-content: space-evenly;
     text-transform: uppercase;
-    border-bottom: 2px solid #4b4b4b;
-    border-top: 2px solid #4b4b4b;
+    border-bottom: 2px solid #111111;
+    border-top: 2px solid #111111;
     padding: 12px 0 12px 0;
     /*margin: 0 0 0 1%;*/
     text-decoration: none;
-    color: #4b4b4b;
+    color: #111111;
 }
 .subheadCl{
     padding: 0 !important;
