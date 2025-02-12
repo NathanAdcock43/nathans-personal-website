@@ -1,12 +1,13 @@
 import {Component, OnInit, Renderer2} from '@angular/core';
 import {NgOptimizedImage} from "@angular/common";
-import { Router } from '@angular/router';
+import {Router, RouterModule} from '@angular/router';
 
 @Component({
   selector: 'app-notepad',
   templateUrl: './notepad.component.html',
   imports: [
-    NgOptimizedImage
+    NgOptimizedImage,
+    RouterModule
   ],
   styleUrls: ['./notepad.component.css']
 })
@@ -14,11 +15,18 @@ export class NotepadComponent implements OnInit {
   constructor(private router: Router, private renderer: Renderer2) {}
 
   navigateToDrawer(): void {
+    console.log("Navigating to drawer...");
+    this.router.navigate(['/drawer']).then((success) => {
+      console.log("Navigation success:", success);
+    }).catch((error) => {
+      console.error("Navigation error:", error);
+    });
+
     const body = document.body;
-    this.router.navigate(['/drawer']);
     this.renderer.removeClass(body, 'desk-background');
     this.renderer.addClass(body, 'drawer-background');
   }
+
 
   dayOfWeek: string = '';
   dayOfMonth: string = '';

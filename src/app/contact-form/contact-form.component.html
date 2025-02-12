@@ -1,17 +1,29 @@
 <div class="notepad">
-    <form class="messageForm">
-        <label for="name" class="formFields">Name:</label> <input type="text" class="formFields" id="name">
+    <form class="messageForm" (submit)="onSubmit();">
+        <label for="name" class="formFields">Name:</label>
+        <input type="text" id="name" class="formFields" [(ngModel)]="formData.name" name="name">
+        <p *ngIf="!formData.name && formSubmitted" class="error">Please enter your name.</p>
 
-        <select name="Contact Method" id="city" class="formFields field2">
-            <option value="Choose">Contact Preference</option>
+        <label for="contactMethod" class="formFields">Contact Preference:</label>
+        <select id="contactMethod" class="formFields field2" [(ngModel)]="formData.contactMethod" name="contactMethod">
+            <option value="Choose" disabled>Choose One</option>
             <option value="Phone">Phone</option>
             <option value="Email">Email</option>
             <option value="LinkedIn">LinkedIn</option>
             <option value="WhatsApp">WhatsApp</option>
         </select>
-        <label for="contact" class="formFields">Contact Info</label><input type="text" class="formFields" id="contact">
+        <p *ngIf="formData.contactMethod === 'Choose' && formSubmitted" class="error">Please select a contact preference.</p>
+
+        <label for="contact" class="formFields">Contact Info:</label>
+        <input type="text" id="contact" class="formFields" [(ngModel)]="formData.contactInfo" name="contactInfo">
+        <p *ngIf="!formData.contactInfo && formSubmitted" class="error">Please provide your contact information.</p>
+
         <label for="Message" class="formFields">Message:</label>
-        <textarea rows="9" cols="30" name="address" id="Message" class="formFields"></textarea>
-        <input type="submit" value="Submit" class="formFields field3">
+        <textarea rows="9" cols="30" id="Message" class="formFields" [(ngModel)]="formData.message" name="message"></textarea>
+        <p *ngIf="!formData.message && formSubmitted" class="error">Please enter your message.</p>
+
+        <input type="submit" value="Submit" class="formFields field3" [disabled]="isLoading">
     </form>
+
+    <p *ngIf="responseMessage" class="success">{{ responseMessage }}</p>
 </div>

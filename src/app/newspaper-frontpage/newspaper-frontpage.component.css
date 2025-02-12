@@ -130,3 +130,10 @@
 .links:hover {
     color: rgba(21, 21, 21, 0.87);
 }
+
+.frontContent {
+    width: 88%;
+    overflow: auto;
+    height: 1000px; /* Set a fixed height */
+    scroll-behavior: smooth; /* Adds smooth scrolling */
+}

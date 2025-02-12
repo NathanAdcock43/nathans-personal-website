@@ -63,3 +63,16 @@
 .classifiedSpace {
     margin-bottom: 5px !important;
 }
+
+/* Magnifiable text styling */
+.magnifiable {
+    margin-bottom: 5px;
+    cursor: pointer;
+    transition: transform 0.2s, font-size 0.2s;
+}
+
+.magnifiable:hover {
+    font-size: 150%;
+    line-height: 100%;
+    word-spacing: 2px;
+}

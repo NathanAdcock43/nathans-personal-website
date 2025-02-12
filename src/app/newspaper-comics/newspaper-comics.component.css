@@ -1,30 +1,12 @@
-/* General content container */
-.content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 20px auto;
-    padding: 10px;
-    width: 90%;
-    overflow: hidden;
-}
+
+
 
 /* Comics-specific content */
 .comicsContent {
-    margin: 0;
-    padding: 0;
-}
-
-/* Comics holder styling */
-.comicsHolder {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    width: 85%;
-    padding-left: 20px;
-    align-items: center;
-    justify-content: center;
+    width: 90%;
+    overflow: auto;
+    height: 1400px; /* Set a fixed height */
+    scroll-behavior: smooth; /* Adds smooth scrolling */
 }
 
 /* Comics images styling */
@@ -34,6 +16,9 @@
     mix-blend-mode: multiply; /* Ensures blending with backgrounds */
     width: 100%; /* Responsive width */
     transition: transform 0.2s ease; /* Smooth hover scaling effect */
+}
+
+.comicSpace{
     padding: 3%;
 }
 
@@ -59,5 +44,18 @@
 .column {
     width: 45%;
     padding: 0 0 0 5%;
+}
+
+.subheader {
+    display: flex;
+    position: sticky;
+    justify-content: space-evenly;
+    text-transform: uppercase;
+    border-bottom: 2px solid #111111;
+    border-top: 2px solid #111111;
+    padding: 0 0 0 0 !important;
+    /*margin: 0 0 0 1%;*/
+    text-decoration: none;
+    color: #111111;
 }
 

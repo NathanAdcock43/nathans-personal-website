@@ -181,11 +181,12 @@ p {
 .content {
     font-size: 0;
     line-height: 0;
-    word-spacing: -.31em;
+    word-spacing: -0.31em;
     display: inline-block;
-    margin: 1px 2% 0 2%;
-    overflow: scroll;
+    margin: 30px 2% 0 2%;
+    overflow: auto;
     height: 950px;
+    scroll-behavior: auto;
 }
 
 .secondaryPages{
@@ -196,6 +197,10 @@ p {
     width: 90%;
     margin-left: 6%;
     margin-right: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 10px;
 }
 
 .column {
@@ -206,11 +211,11 @@ p {
     padding: 0 1% 0 1%;
     vertical-align: top;
     margin-bottom: 50px;
-    transition: all .7s;
+    transition: all 0.7s;
 }
 
 .column + .column {
-    border-left: 1px solid #111111;
+    border-left: 1px solid #4b4b4b;
 }
 
 .column .headline {
