@@ -25,7 +25,7 @@ export class ContactFormComponent {
   isLoading = false;
   formSubmitted = false;  // ✅ ADDED: Tracks if form has been submitted
 
-  private apiUrl = 'https://xpwx6ugfb0.execute-api.us-east-1.amazonaws.com/prod/UserMessageToEmail';
+  private apiUrl = 'https://xpwx6ugfb0.execute-api.us-east-1.amazonaws.com/prod/contact';
 
 
   constructor(private http: HttpClient) {}
