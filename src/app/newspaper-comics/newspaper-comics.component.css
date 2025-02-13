@@ -1,0 +1,65 @@
+
+
+
+/* Comics-specific content */
+.comicsContent {
+    display: flex;
+    flex-wrap: wrap;
+    width: 85%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: 1400px; /* Set a fixed height */
+    scroll-behavior: auto; /* Adds smooth scrolling */
+    justify-content: space-between;
+    margin: 1px 10% 0 auto;
+}
+
+/*!* General container for columns *!*/
+/*.columns {*/
+
+
+/*    width: 85%;*/
+
+/*}*/
+
+
+/* Comics images styling */
+.comics {
+    height: auto;
+    filter: grayscale(10%) opacity(0.95); /* Adds grayscale and slight opacity */
+    mix-blend-mode: multiply; /* Ensures blending with backgrounds */
+    width: 100%; /* Responsive width */
+    transition: transform 0.2s ease; /* Smooth hover scaling effect */
+}
+
+.comicSpace{
+    padding: 3%;
+}
+
+.comics:hover {
+    transform: scale(1.1); /* Slight zoom on hover */
+}
+
+/* Magnify-image styling */
+.magnify-image {
+    cursor: zoom-in; /* Indicates zoom functionality */
+}
+/* Individual column styling */
+.column {
+    width: 45%;
+    padding: 0 0 0 5%;
+}
+
+.subheader {
+    display: flex;
+    position: sticky;
+    justify-content: space-evenly;
+    text-transform: uppercase;
+    border-bottom: 2px solid #111111;
+    border-top: 2px solid #111111;
+    padding: 0 0 0 0 !important;
+    /*margin: 0 0 0 1%;*/
+    text-decoration: none;
+    color: #111111;
+}
+

@@ -1,0 +1,76 @@
+/* Sparkle sheen effect */
+
+.coin {
+    position: absolute;
+    top: calc(50% - 187px);
+    left: calc(50% - 768px);
+    width: 6rem;
+    height: 6rem;
+    background-color: transparent;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    z-index: 2;
+}
+
+.coin::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(to bottom, rgba(229, 172, 142, 0), rgba(255, 255, 255, 0.5) 50%, rgba(229, 172, 142, 0));
+    transform: rotate(60deg);
+    animation: sheen 10s infinite linear;
+    z-index: 3;
+}
+
+/* Optionally add a second coin */
+.coin-two {
+    position: absolute;
+    top: calc(50% - 230px);
+    left: calc(50% - 712px);
+    width: 6rem;
+    height: 6rem;
+    background-color: transparent;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    z-index: 4;
+}
+
+.coin-two::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(to bottom, rgba(229, 172, 142, 0), rgba(255, 255, 255, 0.5) 50%, rgba(229, 172, 142, 0));
+    transform: rotate(60deg);
+    animation: sheen 10s infinite linear;
+    z-index: 5;
+}
+
+@keyframes sheen {
+    0% {
+        transform: rotate(60deg) translate(-5em, 7.5em);
+        opacity: 1; /* Fully visible at the start */
+    }
+    16.67% {
+        transform: rotate(60deg) translate(5em, -7.5em);
+        opacity: 1; /* Maintain visibility during the sheen */
+    }
+    33.33% {
+        transform: rotate(60deg) translate(-5em, 7.5em);
+        opacity: 0.3; /* Subtle finish */
+    }
+    100% {
+        opacity: 0.0; /* Maintain subtle opacity during the delay */
+    }
+}

@@ -1,0 +1,38 @@
+.curtain {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black */
+    z-index: 9999;
+    animation: curtain-fade 2s ease-in-out;
+}
+
+@keyframes curtain-fade {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1; /* Fully opaque at midpoint */
+    }
+    100% {
+        opacity: 0; /* Fades out */
+    }
+}
+
+.drawer-toggle {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.drawer-toggle:hover {
+    background-color: #0056b3;
+}

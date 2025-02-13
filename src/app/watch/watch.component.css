@@ -1,0 +1,103 @@
+.watch {
+    transform: rotateZ(-25deg);
+    top: calc(50% - 75px);
+    left: calc(50% - 675px);
+    width: 150px;
+    height: 1000px;
+    background: image-set(
+            url("../../assets/images/webp_sm/watchFlatLay.webp") 1x,
+            url("../../assets/images/png_sm/watchFlatLay.png") 1x
+    ) no-repeat center;
+    background-size: 100%;
+    position: absolute;
+    z-index: 2; /* Ensures watch appears above the shadow */
+}
+
+.watch-shadow {
+    position: absolute;
+    top: calc(50% - 75px);
+    left: calc(50% - 671px);
+    width: 150px;
+    height: 1000px;
+    background: image-set(
+            url("../../assets/images/webp_sm/watchshadow.webp") 1x,
+            url("../../assets/images/png_sm/watchshadow.png") 1x
+    ) no-repeat center;
+    filter: drop-shadow(12px 12px 12px rgba(0, 0, 0, 0.2));
+    background-size: 100%;
+    transform: rotateZ(-25deg);
+    opacity: 0.75;
+    z-index: 1;
+}
+
+.clock {
+    transform: rotateZ(-4deg);
+    top: 404px;
+    left: 16px;
+    width: 105px;
+    height: 105px;
+    background: image-set(
+            url("../../assets/images/webp_sm/watchFace.webp") 1x,
+            url("../../assets/images/png_sm/watchFace.png") 1x
+    ) no-repeat center;
+    background-size: 100%;
+    border-radius: 50%;
+    border: 2px solid black;
+    position: absolute;
+}
+
+.clock .hand {
+    --rotation: 0;
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    transform-origin: bottom;
+    z-index: 10;
+    transform: translateX(-50%) rotate(calc(var(--rotation) * 1deg));
+}
+
+.clock::after {
+    content: '';
+    position: absolute;
+    background-color: #444040;
+    z-index: 11;
+    width: 10px;
+    height: 10px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+}
+
+.clock .hand.second {
+    width: 1px;
+    height: 40%;
+    background-color: #f86464;
+    transition-delay: 0.024s;
+}
+
+.clock .hand.second::before {
+    background: #000000;
+    border-radius: 50%;
+    border: #ff0000 solid .12em;
+    content: "";
+    position: absolute;
+    top: -9%;
+    left: -200%;
+    height: 12%;
+    width: 500%;
+}
+
+.clock .hand.minute {
+    width: 3px;
+    height: 40%;
+    background-color: #444040;
+}
+
+.clock .hand.hour {
+    width: 5px;
+    height: 35%;
+    background-color: #444040;
+}

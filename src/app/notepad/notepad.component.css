@@ -1,0 +1,137 @@
+*, *::after, *::before {
+    box-sizing: border-box;
+}
+
+.note-shadow {
+    top: calc(50% - 655px);
+    left: calc(50% + 520px);
+    width: 375px;
+    height: 900px;
+    background: image-set(
+            url("../../assets/images/webp_sm/note_shadow.webp") 1x,
+            url("../../assets/images/png_sm/note_shadow.png") 1x
+    ) no-repeat center;
+    background-size: 100%;
+    filter: drop-shadow(10px 3px 8px rgba(0, 0, 0, 0.2));
+    opacity: .50;
+    position: absolute;
+    z-index: 1;
+}
+
+.notes {
+    top: calc(50% - 655px);
+    left: calc(50% + 500px);
+    width: 375px;
+    height: 900px;
+    background: image-set(
+            url("../../assets/images/webp_sm/noteRoller.webp") 1x,
+            url("../../assets/images/png_sm/noteRoller.png") 1x
+    ) no-repeat center;
+    background-size: 100%;
+    position: absolute;
+    z-index: 2;
+}
+
+.dateContainer{
+    display: flex;
+    top: calc(50% - 248px);
+    left: calc(50% - 85px);
+    width: 50%;
+    justify-content: space-between;
+    position: relative;
+}
+
+#monthNums{
+    display: flex;
+    justify-content: space-between;
+    width: 40%;
+}
+
+#dayOfWeek{
+    width: 20px;
+    height: 15px;
+    display: flex;
+}
+
+#dayOfMonth1{
+    width: 20px;
+    height: 15px;
+    display: flex;
+}
+
+#dayOfMonth2{
+    width: 20px;
+    height: 15px;
+    display: flex;
+}
+
+#Month{
+    width: 40px;
+    height: 15px;
+    display: flex;
+}
+
+/*Stick Man Drawing*/
+
+.stickMan {
+    display: inline;
+    filter: contrast(100%);
+    mix-blend-mode: multiply;
+    object-fit: contain;
+    margin-top: 15%;
+    padding: 15%;
+}
+
+/*.overlay-button:hover {*/
+/*    background-color: rgba(0, 0, 0, 0.9);*/
+/*}*/
+
+.overlay-button.show {
+    opacity: 90%;
+    visibility: visible;
+}
+
+.overlay-button {
+    position: relative;
+    top: 70%; /* Centers the button */
+    left: 65%;
+    transform: translate(-50%, -50%);
+
+    /*background: image-set(*/
+    /*        url("/assets/images/webp_sm/scribble.webp") 1x,*/
+    /*        url("/assets/images/png_sm/scribble.png") 1x*/
+    /*);*/
+    /*background-size: 50%; !* Makes the image repeat twice *!*/
+    /*background-repeat: repeat;*/
+    /*background-blend-mode: overlay;*/
+    color: rgba(75, 75, 75, 0.87); /* Change text color if needed */
+    border: none;
+    font-size: 20px;
+    font-family: Akaya_Kanadaka, Arial, sans-serif;
+    font-weight: bolder;
+    cursor: pointer;
+    border-radius: 50px;
+    opacity: 90%; /* Partial transparency */
+    visibility: hidden;
+    transition: opacity 1s ease-in-out;
+}
+
+.overlay-button:hover{
+    /*background: image-set(*/
+    /*        url("/assets/images/webp_sm/scribble_hover.webp") 1x,*/
+    /*        url("/assets/images/png_sm/scribble_hover.png") 1x*/
+    /*);*/
+    opacity: 40;
+    /*background-size: 50%;*/
+    /*background-repeat: repeat;*/
+}
+
+.safari-fix {
+    position: absolute;
+    top: 75% !important;
+    left: 62%!important;
+    transform: translateX(-50%) !important;
+}
+
+
+

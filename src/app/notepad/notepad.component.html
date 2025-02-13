@@ -1,0 +1,16 @@
+<!-- Notepad containing dynamically rendered date and stickman -->
+<div class="notes">
+    <div class="dateContainer">
+        <p id="dayOfWeek"></p>
+        <div id="monthNums">
+            <p></p>
+            <p id="dayOfMonth1"></p>
+            <p id="dayOfMonth2"></p>
+        </div>
+        <p id="Month"></p>
+    </div>
+
+    <img class="stickMan" id="stickManGif" ngSrc="assets/images/HandDrawn2_4.gif" alt="StickMan"
+         fill="">
+    <button class="overlay-button hidden safari-fix" id="delayedButton" (click)="navigateToDrawer()">Check Drawer</button>
+</div>

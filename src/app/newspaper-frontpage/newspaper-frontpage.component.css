@@ -1,0 +1,139 @@
+/* General container for columns */
+.columns {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 90%;
+    margin: 10px 70px 30px auto;
+
+}
+
+/* Individual column styling */
+.column {
+    font-size: 14px;
+    line-height: 20px;
+    width: 30%;
+    display: inline-block;
+    padding: 0 1% 0 1%;
+    vertical-align: top;
+    margin-bottom: 50px;
+    transition: all 0.7s ease;
+}
+
+.column + .column {
+    border-left: 1px solid #4b4b4b;
+}
+
+/* Headings and subheadings */
+.head {
+    margin: 0 10% 20px 0;
+    text-align: center;
+}
+
+.headline {
+    font-family: 'Playfair Display', serif;
+    display: block;
+    text-align: center;
+    margin: 10px auto;
+    line-height: 1.2;
+}
+
+.hl1 {
+    font-weight: 700;
+    font-size: 36px;
+    padding: 10px 0;
+}
+
+.hl2 {
+    font-weight: 400;
+    font-style: italic;
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.hl3 {
+    font-weight: 400;
+    font-style: italic;
+    font-size: 36px;
+    padding: 10px 0;
+}
+
+.hl5 {
+    font-weight: 400;
+    font-size: 42px;
+    font-style: italic;
+    padding: 10px 0;
+}
+
+.hl6 {
+    font-weight: 400;
+    font-size: 18px;
+    margin: 20px 0;
+    text-align: center;
+    font-style: italic;
+}
+
+/* Magnifiable text styling */
+.magnifiable {
+    margin-bottom: 5px;
+    cursor: pointer;
+    transition: transform 0.2s, font-size 0.2s;
+}
+
+.magnifiable:hover {
+    font-size: 150%;
+    line-height: 100%;
+    word-spacing: 2px;
+}
+
+/* Image and media styling */
+.headshot,
+.campus {
+    width: 100%;
+    height: auto;
+    filter: contrast(90%);
+    mix-blend-mode: multiply;
+}
+
+.media {
+    width: 100%;
+    mix-blend-mode: multiply;
+}
+
+.chart {
+    width: 100%;
+    height: auto;
+}
+
+.figure {
+    margin: 20px auto;
+    text-align: center;
+}
+
+.figcaption {
+    font-size: 12px;
+    font-style: italic;
+}
+
+/* Links and interactive elements */
+.links {
+    border-right: solid #86807e thin;
+    text-decoration: none;
+    color: #4b4b4b;
+}
+
+.links:visited,
+.links:active {
+    color: #4b4b4b;
+}
+
+.links:hover {
+    color: rgba(21, 21, 21, 0.87);
+}
+
+.frontContent {
+    width: 88%;
+    overflow: auto;
+    height: 1000px; /* Set a fixed height */
+    scroll-behavior: smooth; /* Adds smooth scrolling */
+}

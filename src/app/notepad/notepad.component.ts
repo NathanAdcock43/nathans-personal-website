@@ -1,0 +1,97 @@
+import {Component, OnInit, Renderer2} from '@angular/core';
+import {NgOptimizedImage} from "@angular/common";
+import {Router, RouterModule} from '@angular/router';
+
+@Component({
+  selector: 'app-notepad',
+  templateUrl: './notepad.component.html',
+  imports: [
+    NgOptimizedImage,
+    RouterModule
+  ],
+  styleUrls: ['./notepad.component.css']
+})
+export class NotepadComponent implements OnInit {
+  constructor(private router: Router, private renderer: Renderer2) {}
+
+  navigateToDrawer(): void {
+    console.log("Navigating to drawer...");
+    this.router.navigate(['/drawer']).then((success) => {
+      console.log("Navigation success:", success);
+    }).catch((error) => {
+      console.error("Navigation error:", error);
+    });
+
+    const body = document.body;
+    this.renderer.removeClass(body, 'desk-background');
+    this.renderer.addClass(body, 'drawer-background');
+  }
+
+
+  dayOfWeek: string = '';
+  dayOfMonth: string = '';
+  month: string = '';
+
+  ngOnInit(): void {
+
+    // ✅ Detect Safari
+    if (this.isSafari()) {
+      console.log("Safari detected - Applying button position fix.");
+      setTimeout(() => {
+        const button = document.getElementById("delayedButton");
+        if (button) {
+          button.classList.add("safari-fix"); // ✅ Add Safari-specific class
+        }
+      }, 14000); // 14-second delay
+    } else {
+      setTimeout(() => {
+        document.getElementById("delayedButton")?.classList.add("show");
+      }, 14000);
+    }
+
+    this.updateDate();
+    setTimeout(function() {
+      document.getElementById("delayedButton").classList.add("show");
+    }, 14000); // 30 seconds delay
+
+  }
+
+  private updateDate(): void {
+    const currentDate = new Date();
+    const days = ['Sun', 'Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat'];
+    const months = [
+      'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+      'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
+    ];
+
+    this.dayOfWeek = days[currentDate.getDay()];
+    const dateString = currentDate.getDate().toString().padStart(2, '0'); // Ensures two digits
+    this.dayOfMonth = dateString;
+    this.month = months[currentDate.getMonth()];
+
+    // Dynamically update the DOM
+    const dayOfWeekElement = document.getElementById('dayOfWeek');
+    const dayOfMonth1Element = document.getElementById('dayOfMonth1');
+    const dayOfMonth2Element = document.getElementById('dayOfMonth2');
+    const monthElement = document.getElementById('Month');
+
+    if (dayOfWeekElement) {
+      dayOfWeekElement.textContent = this.dayOfWeek;
+    }
+    if (dayOfMonth1Element) {
+      dayOfMonth1Element.textContent = this.dayOfMonth[0];
+    }
+    if (dayOfMonth2Element) {
+      dayOfMonth2Element.textContent = this.dayOfMonth[1];
+    }
+    if (monthElement) {
+      monthElement.textContent = this.month;
+    }
+  }
+
+  // ✅ Function to detect Safari
+  private isSafari(): boolean {
+    return /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+  }
+
+}

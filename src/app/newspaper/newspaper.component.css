@@ -1,0 +1,433 @@
+/* General layout and styling for the entire paper */
+.entire-paper {
+    position: absolute;
+    top: calc(50% - 400px);
+    left: calc(50% - 345px);
+    transform: translate(-50px, -50px);
+    transform-origin: top;
+    width: 925px;
+    height: 1200px;
+    background: image-set(
+            url("../../assets/images/webp_sm/clean-newspaper-trimmed.webp") 1x,
+            url("../../assets/images/png_sm/clean-newspaper-trimmed.png") 1x
+    );
+    background-size: 100%;
+    padding: 5em 0 0 0;
+    margin: 0 auto;
+    font-family: 'Droid Serif', serif;
+    font-size: 14px;
+    color: #111111;
+    overflow: auto;
+}
+
+
+/*transitions for paper content between pages*/
+
+/*.transition-fade {*/
+/*    opacity: 1;*/
+/*    transition: 500ms;*/
+/*    transform: translateX(0);*/
+/*    transform-origin: bottom;*/
+/*}*/
+
+/*html.is-animating .transition-fade {*/
+/*    opacity: 1;*/
+/*    transform: translateX(100%);*/
+/*}*/
+
+/*html.is-leaving .transition-fade {*/
+/*    opacity: 0;*/
+/*    transform: translateX(0);*/
+/*}*/
+
+/*.transition-swipe {*/
+/*    transition: 500ms;*/
+/*    transform: translateY(0);*/
+/*}*/
+
+/*html.is-animating .transition-swipe {*/
+/*    transform: translateY(100px);*/
+/*}*/
+
+/*.blind-lights {*/
+/*    z-index: 10;*/
+/*    position: absolute;*/
+/*    right: 65px;*/
+/*    top: 200px;*/
+/*}*/
+
+/* Navigation bar and links styling */
+.subhead {
+    display: flex;
+    justify-content: space-evenly;
+    text-transform: uppercase;
+    border-bottom: 2px solid #111111;
+    border-top: 2px solid #111111;
+    padding: 12px 0 12px 0;
+    margin: 0 10% 0 1%;
+    text-decoration: none;
+    color: #111111;
+}
+
+.links {
+    border-right: solid #86807e thin;
+    text-decoration: none;
+    color: #4b4b4b;
+}
+
+.links:visited {
+    color: #4b4b4b;
+}
+
+.links:hover {
+    color: rgba(75, 75, 75, 0.87);
+    font-weight: bolder;
+}
+
+.links:active {
+    color: #4b4b4b;
+}
+
+a {
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    padding: 1em;
+    margin: -.25em;
+    width: 19%;
+    text-align: center;
+}
+
+/* Styling for the header and title section */
+.head {
+    margin: 0 10% 20px 0;
+    text-align: center;
+}
+
+.title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 50px;
+    display: flex;
+    justify-content: center;
+    text-transform: uppercase;
+    line-height: 72px;
+    margin-bottom: 20px;
+}
+
+.paper-date {
+    font-family: 'Playfair Display', serif;
+    font-weight: 25;
+    font-size: 20px;
+    display: flex;
+    text-transform: uppercase;
+    margin: 30px 1px 10px 50px;
+}
+
+/* Transition effects for page animations */
+html.is-animating .transition-fade {
+    opacity: 1;
+    transform: translateX(100%);
+}
+
+html.is-leaving .transition-fade {
+    opacity: 0;
+    transform: translateX(0);
+}
+
+.headshot {
+    width: 100%;
+    height: auto;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.classifiedHeader{
+    background-color: #111111;
+    color: #c9c4be;
+}
+
+.classifiedSpace{
+    margin-bottom: 5px !important;
+    margin-right: 0 !important;
+}
+
+.secondaryHead{
+    margin: 0 10% 0 0 !important;
+}
+
+.subheadCl{
+    padding: 0 !important;
+    font-size: 14px !important;
+    font-weight: bolder !important;
+    margin: 0 !important;
+}
+
+.pageTitle{
+    margin: 0 0 0 1% !important;
+    padding: 0 !important;
+    border-top: unset !important;
+    font-weight: bolder;
+    letter-spacing: 10px;
+    /*display: inline-block;*/
+    font-size: 75px;
+    transform: scaleY(0.7);
+    transform-origin: 0 0;
+}
+
+.content {
+    font-size: 0;
+    line-height: 0;
+    word-spacing: -0.31em;
+    display: inline-block;
+    margin: 30px 2% 0 2%;
+    overflow: auto;
+    height: 950px;
+    scroll-behavior: auto;
+}
+
+.secondaryPages{
+    margin: 0 !important;
+}
+
+.columns {
+    width: 90%;
+    margin-left: 6%;
+    margin-right: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.column {
+    font-size: 14px;
+    line-height: 20px;
+    width: 30%;
+    display: inline-block;
+    padding: 0 1% 0 1%;
+    vertical-align: top;
+    margin-bottom: 50px;
+    transition: all 0.7s;
+}
+
+.column + .column {
+    border-left: 1px solid #4b4b4b;
+}
+
+.column .headline {
+    text-align: center;
+    line-height: normal;
+    font-family: 'Playfair Display', serif;
+    display: block;
+    margin: 0 auto;
+}
+
+.column .headline.hl1 {
+    font-weight: 700;
+    font-size: 36px;
+    box-sizing: border-box;
+    padding: 10px 0 10px 0;
+
+}
+
+.column .headline.hl2 {
+    font-weight: 400;
+    font-style: italic;
+    font-size: 18px;
+    box-sizing: border-box;
+}
+
+.column .headline.hl2:before {
+    border-top: 1px solid #111111;
+    content: '';
+    width: 100px;
+    height: 7px;
+    display: block;
+    margin: 0 auto;
+}
+
+.column .headline.hl2:after {
+    border-bottom: 1px solid #111111;
+    content: '';
+    width: 100px;
+    height: 13px;
+    display: block;
+    margin: 0 auto;
+
+}
+
+.column .headline.hl3 {
+    font-weight: 400;
+    font-style: italic;
+    font-size: 36px;
+    box-sizing: border-box;
+    padding: 10px 0 10px 0;
+}
+
+.column .headline.hl4 {
+    font-weight: 700;
+    font-size: 12px;
+    box-sizing: border-box;
+    padding: 10px 0 10px 0;
+}
+
+.column .headline.hl4:before {
+    border-top: 1px solid #111111;
+    content: '';
+    width: 100px;
+    height: 7px;
+    display: block;
+    margin: 0 auto;
+}
+
+.column .headline.hl4:after {
+    border-bottom: 1px solid #111111;
+    content: '';
+    width: 100px;
+    height: 10px;
+    display: block;
+    margin: 0 auto;
+
+}
+
+.column .headline.hl5 {
+    font-weight: 400;
+    font-size: 42px;
+    text-transform: uppercase;
+    font-style: italic;
+    box-sizing: border-box;
+    padding: 10px 0 10px 0;
+}
+
+.column .headline.hl6 {
+    font-weight: 400;
+    font-size: 18px;
+    box-sizing: border-box;
+    /*padding: 10px 0 10px 0;*/
+}
+
+.column .headline.hl6:before {
+    border-top: 1px solid #111111;
+    content: '';
+    width: 100px;
+    height: 7px;
+    display: block;
+    margin: 0 auto;
+}
+
+.column .headline.hl6:after {
+    border-bottom: 1px solid #111111;
+    content: '';
+    width: 100px;
+    height: 10px;
+    display: block;
+    margin: 0 auto;
+
+}
+
+.column .headline.hl7 {
+    font-weight: 700;
+    font-size: 12px;
+    box-sizing: border-box;
+    display: block;
+    padding: 10px 0 10px 0;
+}
+
+.column .headline.hl8 {
+    font-weight: 700;
+    font-size: 12px;
+    box-sizing: border-box;
+    padding: 10px 0 10px 0;
+}
+
+.column .headline.hl9 {
+    font-weight: 700;
+    font-size: 12px;
+    box-sizing: border-box;
+    padding: 10px 0 10px 0;
+}
+
+.column .headline.hl10 {
+    font-weight: 700;
+    font-size: 12px;
+    box-sizing: border-box;
+    padding: 10px 0 10px 0;
+}
+
+.column .citation {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    line-height: 44px;
+    text-align: center;
+    font-weight: 400;
+    display: block;
+    margin: 20px 0 20px 0;
+    font-feature-settings: "liga", "dlig";
+}
+
+.column .citation:before {
+    border-top: 1px solid #111111;
+    content: '';
+    width: 100px;
+    height: 16px;
+    display: block;
+    margin: 0 auto;
+}
+
+.column .citation:after {
+    border-bottom: 1px solid #111111;
+    content: '';
+    width: 100px;
+    height: 16px;
+    display: block;
+    margin: 0 auto;
+}
+
+.column .figure {
+    margin: 0 0 20px;
+}
+
+.column .figcaption {
+    font-style: italic;
+    font-size: 12px;
+}
+
+.media {
+    -webkit-filter: sepia(80%) contrast(1);
+    filter: sepia(80%) grayscale(1) contrast(1);
+    mix-blend-mode: multiply;
+    width: 100%;
+}
+
+.head {
+    margin: 0 0 20px 0;
+    text-align: center;
+}
+
+.secondaryHead{
+    margin: 0 10% 0 0 !important;
+}
+
+.subhead {
+    display: flex;
+    justify-content: space-evenly;
+    text-transform: uppercase;
+    border-bottom: 2px solid #111111;
+    border-top: 2px solid #111111;
+    padding: 12px 0 12px 0;
+    /*margin: 0 0 0 1%;*/
+    text-decoration: none;
+    color: #111111;
+}
+.subheadCl{
+    padding: 0 !important;
+    font-size: 14px !important;
+    font-weight: bolder !important;
+    margin: 0 !important;
+}
+
+

@@ -1,0 +1,152 @@
+/*Popular electronics magazine*/
+.magazine {
+    top: calc(50% - 100px);
+    left: calc(50% + 75px);
+    transform: rotateZ(-3deg);
+    z-index: 15;
+    width: 600px;
+    height: 800px;
+    background: image-set(
+            url("../../assets/images/webp_sm/popElectronicsLrg.webp") 1x,
+            url("../../assets/images/png_sm/popElectronicsLrg.png") 1x
+    ) no-repeat center;
+    background-size: 100%;
+    position: absolute;
+}
+
+html.magnifying > body {
+    overflow-x: hidden !important;
+}
+
+.magnify,
+.magnify > .magnify-lens,
+.magnify-mobile,
+.lens-mobile { /* Reset */
+    min-width: 0;
+    min-height: 0;
+    animation: none;
+    border: none;
+    float: none;
+    margin: 0;
+    opacity: 1;
+    outline: none;
+    overflow: visible;
+    padding: 0;
+    text-indent: 0;
+    transform: none;
+    transition: none;
+}
+
+.magnify {
+    top: calc(50% + 190px);
+    left: calc(50% + 475px);
+    position: absolute;
+    width: auto;
+    height: auto;
+    box-shadow: none;
+    display: inline-block;
+    z-index: inherit;
+}
+
+.magnify > .magnify-lens { /* Magnifying lens */
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 100%;
+    border: 3px double #999ea1;
+    cursor: none;
+    display: none;
+    z-index: 99;
+}
+
+.magnify > .magnify-lens.loading {
+    background: #333 !important;
+    opacity: 0.8;
+}
+
+.paper-weight:before {
+    content: "";
+    position: absolute;
+    top: 1%;
+    left: 5%;
+    width: 90%;
+    height: 90%;
+    border-radius: 30%;
+    z-index: 2;
+}
+
+.paper-weight:after {
+    content: "";
+    position: absolute;
+    display: none;
+    top: 5%;
+    left: 10%;
+    width: 80%;
+    height: 80%;
+    border-radius: 100%;
+    -webkit-filter: blur(1px);
+    filter: blur(1px);
+    z-index: 2;
+    -webkit-transform: rotateZ(-30deg);
+    transform: rotateZ(-30deg);
+}
+
+.paper-weight .shadow {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-transform: rotateX(90deg) translateZ(-160px);
+    transform: rotateX(90deg) translateZ(-160px);
+    z-index: 1;
+}
+
+.paper-weight.plain {
+    background: black;
+}
+
+.paper-weight.plain:before, .paper-weight.plain:after {
+    display: none;
+}
+
+.paper-weight.glass {
+    -webkit-animation: glass-anim 2s ease-out infinite;
+    animation: glass-anim 2s ease-out infinite;
+}
+
+.paper-weight.glass:before {
+    -webkit-filter: blur(bottom 4px);
+    filter: blur(bottom 4px);
+    height: 80%;
+    width: 40%;
+    background: radial-gradient(circle at 150% 125%, rgba(255, 255, 255, 0) 20%, rgba(255, 255, 255, 0) 46%, rgba(255, 255, 255, 0.8) 35%, rgba(255, 255, 255, 0.8) 54%, rgba(255, 255, 255, 0) 60%, rgba(255, 255, 255, 0) 100%);
+    -webkit-transform: translateX(170%) translateY(30%) rotateZ(140deg) rotateX(5deg);
+    transform: translateX(170%) translateY(30%) rotateZ(140deg) rotateX(5deg);
+}
+
+.paper-weight.glass:after {
+    display: block;
+    background: radial-gradient(circle at 75% 90%, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0) 74%, white 80%, white 84%, rgba(255, 255, 255, 0) 65%);
+}
+
+.dome {
+    width: 300px;
+    height: 300px;
+    display: inline-block;
+    margin: 20px;
+    -webkit-perspective: 1200px;
+    -moz-perspective: 1200px;
+    -ms-perspective: 1200px;
+    -o-perspective: 1200px;
+    perspective: 1200px;
+    -webkit-perspective-origin: 50% 50%;
+    -moz-perspective-origin: 50% 50%;
+    -ms-perspective-origin: 50% 50%;
+    -o-perspective-origin: 50% 50%;
+    perspective-origin: 50% 50%;
+    position: relative;
+}
+
+
+
+
+
