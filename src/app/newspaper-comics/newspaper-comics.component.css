@@ -3,11 +3,25 @@
 
 /* Comics-specific content */
 .comicsContent {
-    width: 90%;
-    overflow: auto;
+    display: flex;
+    flex-wrap: wrap;
+    width: 85%;
+    overflow-x: hidden;
+    overflow-y: auto;
     height: 1400px; /* Set a fixed height */
-    scroll-behavior: smooth; /* Adds smooth scrolling */
+    scroll-behavior: auto; /* Adds smooth scrolling */
+    justify-content: space-between;
+    margin: 1px 10% 0 auto;
 }
+
+/*!* General container for columns *!*/
+/*.columns {*/
+
+
+/*    width: 85%;*/
+
+/*}*/
+
 
 /* Comics images styling */
 .comics {
@@ -30,16 +44,6 @@
 .magnify-image {
     cursor: zoom-in; /* Indicates zoom functionality */
 }
-
-/* General container for columns */
-.columns {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    width: 90%;
-    margin: 1px 5% 5% auto;
-}
-
 /* Individual column styling */
 .column {
     width: 45%;

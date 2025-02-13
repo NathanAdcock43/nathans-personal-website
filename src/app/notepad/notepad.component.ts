@@ -33,10 +33,27 @@ export class NotepadComponent implements OnInit {
   month: string = '';
 
   ngOnInit(): void {
+
+    // ✅ Detect Safari
+    if (this.isSafari()) {
+      console.log("Safari detected - Applying button position fix.");
+      setTimeout(() => {
+        const button = document.getElementById("delayedButton");
+        if (button) {
+          button.classList.add("safari-fix"); // ✅ Add Safari-specific class
+        }
+      }, 14000); // 14-second delay
+    } else {
+      setTimeout(() => {
+        document.getElementById("delayedButton")?.classList.add("show");
+      }, 14000);
+    }
+
     this.updateDate();
     setTimeout(function() {
       document.getElementById("delayedButton").classList.add("show");
     }, 14000); // 30 seconds delay
+
   }
 
   private updateDate(): void {
@@ -71,4 +88,10 @@ export class NotepadComponent implements OnInit {
       monthElement.textContent = this.month;
     }
   }
+
+  // ✅ Function to detect Safari
+  private isSafari(): boolean {
+    return /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+  }
+
 }
