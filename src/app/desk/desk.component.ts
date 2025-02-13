@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NewspaperComponent } from '../newspaper/newspaper.component';
-import { RouterOutlet } from "@angular/router";
 
 @Component({
   selector: 'app-desk',

@@ -76,19 +76,11 @@ export class DustMotesComponent implements AfterViewInit {
 
   private startGeneratingParticles(): void {
     this.intervalId = setInterval(() => {
-      console.log(`⏳ Running Interval: ${this.intervalId} at ${new Date().toLocaleTimeString()}`);
       if (this.particles.length < this.maxParticles) {
         const newParticle = this.createParticles(1)[0];
         this.particles.push(newParticle);
-        console.log(`✅ Added new particle. Total: ${this.particles.length}`);
       }
     }, 500);
-  }
-
-// Check if the interval is still running
-  @HostListener('window:focus')
-  checkInterval() {
-    console.log(`🔍 Interval Status: ${this.intervalId ? "Running" : "Stopped"}`);
   }
 
 
