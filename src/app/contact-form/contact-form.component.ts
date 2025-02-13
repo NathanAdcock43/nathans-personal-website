@@ -16,7 +16,7 @@ import { NgIf } from '@angular/common';
 export class ContactFormComponent {
   formData = {
     name: '',
-    contactMethod: 'Choose',
+    contactPreference: 'Choose',
     contactInfo: '',
     message: ''
   };
@@ -54,13 +54,13 @@ export class ContactFormComponent {
 
   validateForm(): boolean {
     return this.formData.name.trim() !== '' &&
-        this.formData.contactMethod !== 'Choose' &&
+        this.formData.contactPreference !== 'Choose' &&
         this.formData.contactInfo.trim() !== '' &&
         this.formData.message.trim() !== '';
   }
 
   resetForm() {
-    this.formData = { name: '', contactMethod: 'Choose', contactInfo: '', message: '' };
+    this.formData = { name: '', contactPreference: 'Choose', contactInfo: '', message: '' };
     this.formSubmitted = false;  // ✅ Resets submission state
   }
 }

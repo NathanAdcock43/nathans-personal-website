@@ -5,14 +5,14 @@
         <p *ngIf="!formData.name && formSubmitted" class="error">Please enter your name.</p>
 
         <label for="contactMethod" class="formFields">Contact Preference:</label>
-        <select id="contactMethod" class="formFields field2" [(ngModel)]="formData.contactMethod" name="contactMethod">
+        <select id="contactMethod" class="formFields field2" [(ngModel)]="formData.contactPreference" name="contactMethod">
             <option value="Choose" disabled>Choose One</option>
             <option value="Phone">Phone</option>
             <option value="Email">Email</option>
             <option value="LinkedIn">LinkedIn</option>
             <option value="WhatsApp">WhatsApp</option>
         </select>
-        <p *ngIf="formData.contactMethod === 'Choose' && formSubmitted" class="error">Please select a contact preference.</p>
+        <p *ngIf="formData.contactPreference === 'Choose' && formSubmitted" class="error">Please select a contact preference.</p>
 
         <label for="contact" class="formFields">Contact Info:</label>
         <input type="text" id="contact" class="formFields" [(ngModel)]="formData.contactInfo" name="contactInfo">
