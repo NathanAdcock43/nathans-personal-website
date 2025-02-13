@@ -82,16 +82,6 @@
     word-spacing: 2px;
 }
 
-/* Image styling */
-.moviePic {
-    width: 100%;
-    height: auto;
-    margin: 15px 0;
-    -webkit-filter: grayscale(40%) opacity(0.95);
-    filter: grayscale(40%) opacity(0.95);
-    mix-blend-mode: multiply;
-}
-
 /* Links and interactive elements */
 .links {
     border-right: solid #86807e thin;

@@ -1,6 +1,6 @@
 .vapour {
     transform: rotateZ(0deg);
-    top: calc(50% - 100px);
+    top: calc(50% - 125px);
     left: calc(50% - 700px);
     position: absolute;
     z-index: 10;
